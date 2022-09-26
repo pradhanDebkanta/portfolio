@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { useTheme as useNextTheme } from 'next-themes'
-import { Switch, useTheme } from '@nextui-org/react'
+import { useTheme } from '@nextui-org/react'
 
 export default function Home() {
   const { setTheme } = useNextTheme();
@@ -14,13 +14,31 @@ export default function Home() {
         <link rel="icon" href='/profile.png' />
       </Head>
       <div>
-       
+
         <div>
-          The current theme is: {type}
-          <Switch
-            checked={isDark}
-            onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
-          />
+          <div id='home'
+            style={{
+              minHeight: '800px'
+            }}
+          >
+            When user interacts with the argument element outside of the overlay ref, return true if onClose should be called. This gives you a chance to filter out interaction with elements that should not dismiss the overlay. By default, onClose will always be called on interaction outside the overlay ref.
+          </div>
+          <div id='skills'
+            style={{
+              minHeight: '800px'
+            }}
+          >
+            When user interacts with the argument element outside of the overlay ref, return true if onClose should be called. This gives you a chance to filter out interaction with elements that should not dismiss the overlay. By default, onClose will always be called on interaction outside the overlay ref.
+          </div>
+          <div id='experience'
+            style={{
+              minHeight: '800px'
+            }}
+          >
+            When user interacts with the argument element outside of the overlay ref, return true if onClose should be called. This gives you a chance to filter out interaction with elements that should not dismiss the overlay. By default, onClose will always be called on interaction outside the overlay ref.
+          </div>
+
+
         </div>
       </div>
     </div>

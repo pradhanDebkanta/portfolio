@@ -1,104 +1,72 @@
-import { icons } from '../../utils/icon/newIcon';
-import { GiNotebook } from 'react-icons/gi';
-import { BsBroadcast, BsCalendar4Event } from 'react-icons/bs';
 import { IconContext } from 'react-icons';
-import { GoInbox } from 'react-icons/go';
-import { MdOutlineCampaign } from 'react-icons/md';
-import { RiDashboardLine, RiTeamLine } from 'react-icons/ri';
+import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
+import {RiContactsLine } from 'react-icons/ri';
+import { SiHomeadvisor,  } from 'react-icons/si';
+import { GiSkills, GiChariot } from 'react-icons/gi';
 
 
 const NavItems = [
     {
-        name: "Dashboard",
-        url: "/admin/codesta/dashboard",
-        key: 'dashboard',
+        name: "Home",
+        url: "#home",
+        key: 'home',
         icon: (
             <IconContext.Provider value={{ size: 18, style: { marginRight: 8 } }}>
                 <span>
-                    <RiDashboardLine />
+                    <SiHomeadvisor />
                 </span>
             </IconContext.Provider>
         )
     },
     {
-        name: "Events",
-        url: "/admin/codesta/events",
-        key: 'events',
+        name: "Skills",
+        url: "#skills",
+        key: 'skills',
         icon: (
             <IconContext.Provider value={{ size: 18, style: { marginRight: 8 } }}>
                 <span>
-                    <BsCalendar4Event />
+                    <GiSkills />
                 </span>
             </IconContext.Provider>
         )
     },
     {
-        name: "Members",
-        url: "/admin/codesta/members",
-        key: 'members',
+        name: "Experience",
+        url: "#experience",
+        key: 'experience',
         icon: (
             <IconContext.Provider value={{ size: 18, style: { marginRight: 8 } }}>
                 <span>
-                    <RiTeamLine />
+                    <GiChariot />
                 </span>
             </IconContext.Provider>
         )
     },
     {
-        name: "Campaign",
-        key: 'campaign',
+        name: "Project",
+        url: "#project",
+        key: 'project',
         icon: (
             <IconContext.Provider value={{ size: 18, style: { marginRight: 8 } }}>
                 <span>
-                    <MdOutlineCampaign />
+                    <AiOutlineFundProjectionScreen />
                 </span>
             </IconContext.Provider>
-        ),
-        child: [
-            {
-                name: 'Unicast',
-                url: "/admin/codesta/campaign/unicast",
-                key: 'unicast',
-                description: "Send a massage to perticular member, or communicate one to one.",
-                icon: icons.activity
-            },
-            {
-                name: 'BroadCast',
-                url: "/admin/codesta/campaign/broadcast",
-                key: 'broadcast',
-                description: "Send a massage to every member, or broadcast a massage with all.",
-                icon: (
-                    <IconContext.Provider value={{ size: 24 }}>
-                        <BsBroadcast />
-                    </IconContext.Provider>
-                )
-            }
-        ],
+        )
     },
     {
-        name: "Others",
-        key: 'study_meterials',
+        name: "Contact",
+        url: "#contact",
+        key: 'contact',
         icon: (
             <IconContext.Provider value={{ size: 18, style: { marginRight: 8 } }}>
                 <span>
-                    <GoInbox />
+                    <RiContactsLine />
                 </span>
             </IconContext.Provider>
-        ),
-        child: [
-            {
-                name: 'Study Meterials',
-                url: "/admin/codesta/study-meterials",
-                key: 'study_meterials',
-                icon: (
-                    <IconContext.Provider value={{ size: 24 }}>
-                        <GiNotebook />
-                    </IconContext.Provider>
-                ),
-                description: 'Share study meterials for the members.'
-            }
-        ]
+        )
     },
+    
 ];
 
 export default NavItems;

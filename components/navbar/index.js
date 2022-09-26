@@ -1,99 +1,84 @@
 import React, { useCallback, } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-import { Navbar, Dropdown, } from '@nextui-org/react';
-import { GiNotebook } from 'react-icons/gi';
-import { BsBroadcast } from 'react-icons/bs';
-import { IconContext } from 'react-icons';
+import { useTheme as useNextTheme } from 'next-themes';
+import { Navbar, Switch, useTheme } from '@nextui-org/react';
 
 import { Layout } from './Layout';
-// import MobileNavbar from './MobileNavbar';
-// import UserProfile from './UserProfile';
-// import { useWindowSize } from '../../utils/customHooks/resizeObserver';
-// import { icons } from '../../utils/icon/newIcon';
-// import navCss from '../../assets/styles/superAdmin/adminNavbar.module.css';
+import NavItems from './NavItem';
+import MobileNavbar from './MobileNavbar';
+import navCss from '../../assets/css/navbar/navbar.module.css';
+import MyIcon from '../../utils/icons';
 
+const { MoonIcon, SunIcon } = MyIcon
 
 
 const TopNavbar = () => {
-    // const windowSize = useWindowSize();
+    const { setTheme } = useNextTheme();
+    const { isDark, type } = useTheme();
+
     const router = useRouter();
 
     const activeRoute = useCallback((route) => {
-        if (router.pathname.includes(route))
+        if (router.asPath.includes(route))
             return true;
         else
             return false;
 
     }, [router]);
 
-    const handleDropdown = key => {
-        console.log(key);
-        if (key === 'study_meterials') {
-            router.push('/admin/codesta/study-meterials');
-        } else if (key === 'unicast') {
-            router.push('/admin/codesta/campaign/unicast');
-        } else if (key === 'broadcast') {
-            router.push('/admin/codesta/campaign/broadcast');
-        } else {
-            return;
-        }
-    }
 
     return (
         <Layout>
             <Navbar
-                shouldHideOnScroll={true}
-                variant={'stricky'}
+                // variant="sticky"
                 isCompact={true}
+                
             >
                 <Navbar.Toggle showIn="xs" />
-                <Navbar.Brand
-                    css={{
-                        "@xs": {
-                            w: "12%",
-                        },
-                    }}
-                >
 
-                </Navbar.Brand>
                 <Navbar.Content
                     enableCursorHighlight
+
                     activeColor="secondary"
                     hideIn="xs"
                     variant="highlight-rounded"
-
+                    css={{
+                        marginLeft: 'auto',
+                        marginRight: 'auto'
+                    }}
+                    gap={'$10'}
                 >
-                    <NextLink href={'/admin/codesta/dashboard'}>
-                        <Navbar.Link
-                            isActive={activeRoute('dashboard')}
-                        >
-                            Dashboard
-                        </Navbar.Link>
-                    </NextLink>
-                    <NextLink href="/admin/codesta/events">
-                        <Navbar.Link
-                            isActive={activeRoute('events')}
-                        >
-                            Events
-                        </Navbar.Link>
-                    </NextLink>
-                    <NextLink href="/admin/codesta/members">
-                        <Navbar.Link
-                            isActive={activeRoute('members')}
-                        >
-                            Members
-                        </Navbar.Link>
-                    </NextLink>
-
-                    
+                    {
+                        NavItems?.map(item => (
+                            <NextLink
+                                href={item.url}
+                                key={item.key}>
+                                <Navbar.Link
+                                    isActive={activeRoute(item.url)}
+                                >
+                                    {item.name}
+                                </Navbar.Link>
+                            </NextLink>
+                        ))
+                    }
                 </Navbar.Content>
-                {/* for user profile section */}
-                {/* <UserProfile /> */}
+                <Navbar.Content>
+                    <Navbar.Item>
+                        <Switch
+                            checked={isDark}
+                            onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
+                            size='xs'
+                            iconOff={<MoonIcon filled style={{ color: '#FF6BD5' }} />}
+                            iconOn={<SunIcon filled style={{ color: '#F8C572' }} />}
+                            color='secondary'
+                        />
+                    </Navbar.Item>
+                </Navbar.Content>
 
                 {/* for mobile navbar */}
 
-                {/* <MobileNavbar /> */}
+                <MobileNavbar />
             </Navbar>
         </Layout>
     )
