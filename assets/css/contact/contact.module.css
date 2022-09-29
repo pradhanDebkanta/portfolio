@@ -1,4 +1,40 @@
-.container{
-    min-height: 100vh;
-    scroll-snap-align: center;
+.container {
+    min-height: 60vh;
+    background-image: url('../../images/footer.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.headingText {
+    position: relative;
+}
+
+.container:hover .headingText::after {
+    opacity: 1;
+    transition: all 0.5s ease;
+    width: 145px;
+}
+
+.headingText::after {
+    content: '';
+    height: 2px;
+    width: 0px;
+    background-image: linear-gradient(135deg, #FEC163 10%, #DE4313 100%);
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.contactBoxRight {
+    width: 100%;
+}
+
+@media screen and (max-width: 650px) {
+    .container:hover .headingText::after {
+        width: 90px;
+    }
 }

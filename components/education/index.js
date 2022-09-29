@@ -24,6 +24,7 @@ const Education = () => {
                 >
                     Education
                 </Text>
+                
 
             </Container>
         </div>

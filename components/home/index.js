@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import home from '../../assets/css/home/home.module.css';
-import { Container, Grid, Text, useTheme, Spacer, } from '@nextui-org/react';
+import { Button, Container, Grid, Spacer, Text, useTheme, } from '@nextui-org/react';
 import { MdOutlineWavingHand } from 'react-icons/md';
 import { IconContext } from 'react-icons';
 
 import profileImg from '../../assets/images/myProfile.png';
-
-
 
 const TypeAnimation = dynamic(() => import('react-type-animation').then(res => res.TypeAnimation), { ssr: false })
 
@@ -18,10 +17,25 @@ const Home = () => {
     const textColor = isDark ? "#F9CEEE" : "#b721ff";
     const highlightColor = isDark ? "#FFEF82" : "#F9D923";
 
+    const router = useRouter();
+
     const [count, setCount] = useState(0);
 
+    const scrollContact = () => {
+        const html = document?.documentElement;
+        let id = html?.querySelector('#contact');
+
+        window?.scrollTo({
+            top: id?.offsetTop,
+            behavior: 'smooth'
+        })
+        setTimeout(() => {
+            router.push('/#contact');
+        }, 1000);
+    }
+
     return (
-        <div id='home' className={home.container}>
+        <div id='home' className={home.container} >
             <Container>
                 <Grid.Container gap={1} css={{ justifyContent: 'center' }}>
                     <Grid sm={8} justify="center">
@@ -77,6 +91,19 @@ const Home = () => {
                                     I&#39;m a <strong style={{ color: highlightColor }}>MERN</strong> stack web developer.
                                 </Text>
                             </div>
+                            <Spacer y={1} />
+                            <Button
+                                color={'secondary'}
+                                flat
+                                rounded
+                                css={{
+                                    marginLeft: 'auto',
+                                    marginRight: 'auto'
+                                }}
+                                onPress={() => { scrollContact() }}
+                            >
+                                Contact Me
+                            </Button>
                         </div>
 
                     </Grid>

@@ -26,7 +26,11 @@ const MobileNavbar = () => {
                         }}
                         isActive={activeRoute(item.url)}
                     >
-                        <NextLink href={item.url}>
+                        <NextLink
+                            href={item.url}
+                            scroll={false}
+                            passHref
+                        >
                             <Link
                                 color="inherit"
                                 css={{
