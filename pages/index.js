@@ -1,11 +1,14 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { useTheme as useNextTheme } from 'next-themes'
-import { useTheme } from '@nextui-org/react'
+import Home from '../components/home';
+import Education from '../components/education';
+import Skills from '../components/skills';
+import Experience from '../components/experience';
+import Project from '../components/project';
+import Contact from '../components/contact';
+import homeCss from '../assets/css/home/home.module.css';
 
-export default function Home() {
-  const { setTheme } = useNextTheme();
-  const { isDark, type } = useTheme();
+export default function home() {
+
   return (
     <div className=''>
       <Head>
@@ -15,30 +18,13 @@ export default function Home() {
       </Head>
       <div>
 
-        <div>
-          <div id='home'
-            style={{
-              minHeight: '800px'
-            }}
-          >
-            When user interacts with the argument element outside of the overlay ref, return true if onClose should be called. This gives you a chance to filter out interaction with elements that should not dismiss the overlay. By default, onClose will always be called on interaction outside the overlay ref.
-          </div>
-          <div id='skills'
-            style={{
-              minHeight: '800px'
-            }}
-          >
-            When user interacts with the argument element outside of the overlay ref, return true if onClose should be called. This gives you a chance to filter out interaction with elements that should not dismiss the overlay. By default, onClose will always be called on interaction outside the overlay ref.
-          </div>
-          <div id='experience'
-            style={{
-              minHeight: '800px'
-            }}
-          >
-            When user interacts with the argument element outside of the overlay ref, return true if onClose should be called. This gives you a chance to filter out interaction with elements that should not dismiss the overlay. By default, onClose will always be called on interaction outside the overlay ref.
-          </div>
-
-
+        <div className={homeCss.globalContainer}>
+          <Home />
+          <Education />
+          <Skills />
+          <Experience />
+          <Project />
+          <Contact />
         </div>
       </div>
     </div>

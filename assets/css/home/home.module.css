@@ -1,0 +1,69 @@
+.globalContainer {}
+
+.container {
+    min-height: 100vh;
+    max-height: 100vh;
+    padding-top: 2.5rem;
+    background-image: url('../../images/background2.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: multiply;
+    background-size: cover;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.headingBox {
+    padding-top: 2rem;
+}
+
+.headingBox:hover .handshak {
+    animation: shaking 0.5s infinite;
+}
+
+.handshak {
+    animation: shaking 0.5s 2;
+}
+
+.profileContainer {
+    height: 100%;
+    width: 100%;
+    padding-top: 1rem;
+    display: flex;
+    max-height: 450px;
+}
+
+.img {
+    height: 100%;
+    width: 100%;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 650px) {
+    .responsiveText {
+        font-size: 26px !important;
+    }
+}
+
+@keyframes shaking {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(5px, 5px) rotate(-5deg);
+    }
+
+    50% {
+        transform: translate(0, 0) rotate(0eg);
+    }
+
+    75% {
+        transform: translate(-5px, 5px) rotate(-45deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}

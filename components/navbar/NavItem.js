@@ -1,8 +1,8 @@
 import { IconContext } from 'react-icons';
 import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
-import {RiContactsLine } from 'react-icons/ri';
-import { SiHomeadvisor,  } from 'react-icons/si';
-import { GiSkills, GiChariot } from 'react-icons/gi';
+import { RiContactsLine } from 'react-icons/ri';
+import { SiHomeadvisor, } from 'react-icons/si';
+import { GiSkills, GiChariot, GiTiedScroll } from 'react-icons/gi';
 
 
 const NavItems = [
@@ -14,6 +14,18 @@ const NavItems = [
             <IconContext.Provider value={{ size: 18, style: { marginRight: 8 } }}>
                 <span>
                     <SiHomeadvisor />
+                </span>
+            </IconContext.Provider>
+        )
+    },
+    {
+        name: "Education",
+        url: "#education",
+        key: 'education',
+        icon: (
+            <IconContext.Provider value={{ size: 18, style: { marginRight: 8 } }}>
+                <span>
+                    <GiTiedScroll />
                 </span>
             </IconContext.Provider>
         )
@@ -66,7 +78,7 @@ const NavItems = [
             </IconContext.Provider>
         )
     },
-    
+
 ];
 
 export default NavItems;

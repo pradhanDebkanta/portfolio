@@ -20,6 +20,7 @@ const TopNavbar = () => {
     const router = useRouter();
 
     const activeRoute = useCallback((route) => {
+        // console.log(route);
         if (router.asPath.includes(route))
             return true;
         else
@@ -33,7 +34,7 @@ const TopNavbar = () => {
             <Navbar
                 // variant="sticky"
                 isCompact={true}
-                
+
             >
                 <Navbar.Toggle showIn="xs" />
 
@@ -53,9 +54,13 @@ const TopNavbar = () => {
                         NavItems?.map(item => (
                             <NextLink
                                 href={item.url}
-                                key={item.key}>
+                                key={item.key}
+                                scroll={false}
+                                passHref
+                            >
                                 <Navbar.Link
                                     isActive={activeRoute(item.url)}
+
                                 >
                                     {item.name}
                                 </Navbar.Link>

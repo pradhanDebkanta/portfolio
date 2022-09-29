@@ -1,0 +1,38 @@
+.container {
+    min-height: 100vh;
+    padding-top: 3.2rem;
+}
+
+.headerText {
+    position: relative;
+}
+
+.container:hover .headerText::after {
+    opacity: 1;
+    transition: all 0.5s ease;
+    width: 170px;
+}
+
+.headerText::after {
+    content: '';
+    height: 2px;
+    width: 0px;
+    background-color: #8758FF;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+@media screen and (max-width: 650px) {
+    .container:hover .headerText::after {
+        width: 115px;
+    }
+}
+
+/* npm i @antv/util
+
+npm i @ant-design/plots
+*/
