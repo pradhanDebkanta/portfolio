@@ -76,7 +76,6 @@ const Project = ({ personalProject, contributeProject }) => {
                                             </Card.Header>
                                             <Card.Body
                                                 css={{
-                                                    // backgroundImage: `url(https://i.postimg.cc/44hVSt1C/order-managenent.png)`,
                                                     backgroundImage: `url(${item?.img})`,
                                                     backgroundPosition: 'top',
                                                     backgroundSize: 'cover',

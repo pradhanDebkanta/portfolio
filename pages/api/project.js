@@ -2,7 +2,6 @@ import { personalProjects, contributeProject } from "../../db/projectList"
 
 export default function handler(req, res) {
   const { projectType } = req?.query;
-  console.log(projectType)
 
   if (req.method === "GET") {
     if (projectType === "personal") {
