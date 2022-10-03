@@ -29,8 +29,14 @@
     opacity: 0;
 }
 
+.contactBoxLeft{
+    margin-top: 1rem;
+}
 .contactBoxRight {
     width: 100%;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media screen and (max-width: 650px) {

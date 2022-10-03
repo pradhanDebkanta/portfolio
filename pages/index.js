@@ -6,8 +6,10 @@ import Experience from '../components/experience';
 import Project from '../components/project';
 import Contact from '../components/contact';
 import homeCss from '../assets/css/home/home.module.css';
+import apiService from '../services/apiService';
 
-export default function home() {
+
+export default function home({ personalProject, contributeProject }) {
 
   return (
     <div>
@@ -23,10 +25,50 @@ export default function home() {
           <Education />
           <Skills />
           <Experience />
-          <Project />
+          <Project
+            personalProject={personalProject}
+            contributeProject={contributeProject}
+          />
           <Contact />
         </div>
       </div>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  try {
+    const pp = await apiService.get('/api/project', { projectType: 'personal' });
+    const cp = await apiService.get('/api/project', { projectType: 'contribute' });
+
+    if (pp.status !== 200) {
+      pp.data = [];
+    } else if (cp.status !== 200) {
+      cp.data = [];
+    } else if (pp.status !== 200 && cp.status !== 200) {
+      pp.data = [];
+      cp.data = [];
+    } else {
+      pp.data = JSON.parse(pp?.data);
+      cp.data = JSON.parse(cp?.data);
+    }
+
+
+    return {
+      props: {
+        personalProject: pp.data,
+        contributeProject: cp.data,
+      }
+    }
+  } catch (e) {
+    console.log(e.message);
+    return {
+      props: {
+        personalProject: [],
+        contributeProject: []
+      }
+    }
+  }
+
+
 }
