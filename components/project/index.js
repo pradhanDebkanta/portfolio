@@ -10,10 +10,13 @@ import { MdOutlineOndemandVideo } from 'react-icons/md';
 const Project = ({ personalProject, contributeProject }) => {
     const { isDark } = useTheme();
     const headerColor = isDark ? "45deg, $purple600 -20%, $pink600 100%" : "-20deg, #b721ff 0%, #21d4fd 100%";
-    const subHeaderColor = isDark ? "135deg, #FEC163 10%, #DE4313 100%" : "135deg, #FEC163 10%, #DE4313 100%";
-    const cardHeaderColor = isDark ? "45deg, $purple600 -20%, $pink600 100%" : "-20deg, #b721ff 0%, #21d4fd 100%";
-    const iconColor = isDark ? '#fff' : '#fff';
-    const textColor = isDark ? '#fff' : '#fff';
+    const subHeaderColor = isDark ? "45deg, $purple600 -20%, $pink600 100%" : "45deg, #21D4FD 0%, #B721FF 33%, #7434db 94%";
+    const cardHeaderColor = isDark ? "63deg, #FBAB7E 0%, #F7CE68 100%" : "20deg, #FAD961 9%, #d1e94a 14%, #F76B1C 60%";
+    const iconColor = isDark ? '#fff' : '#7895B2';
+    const textColor = isDark ? '#eeefee' : '#16213E';
+    const textHeadingColor = isDark ? "$secondary" : "#8758FF";
+
+
 
     const ref = useRef('');
     const ref1 = useRef('');
@@ -38,7 +41,7 @@ const Project = ({ personalProject, contributeProject }) => {
                     Project
                 </Text>
                 <Spacer y={1} />
-                <div className={projectCss.projectBox}>
+                <div>
                     <Text
                         h2
                         size={24}
@@ -50,12 +53,12 @@ const Project = ({ personalProject, contributeProject }) => {
                         Personal Project
                     </Text>
                     <Spacer y={0.8} />
-                    <Grid.Container gap={2} >
+                    <Grid.Container gap={2.5} >
                         {
                             Array.isArray(personalProject) && personalProject.length > 0 && personalProject.map(item => {
                                 return (
                                     <Grid md={4} sm={6} xs={12} key={item.id}>
-                                        <Card css={{ w: "100%", minHeight: "320px" }}>
+                                        <Card css={{ w: "100%", minHeight: "320px" }} variant='bordered' className={projectCss.cardContainer}>
                                             <Card.Header
                                                 ref={ref}
                                                 css={{
@@ -70,96 +73,97 @@ const Project = ({ personalProject, contributeProject }) => {
                                                     css={{
                                                         textGradient: cardHeaderColor
                                                     }}
+                                                    className={projectCss.cardHeading}
                                                 >
                                                     {item?.name}
+                                                    <span className={projectCss.line1}></span>
+                                                    <span className={projectCss.line2}></span>
+                                                    <span className={projectCss.line3}></span>
+                                                    <span className={projectCss.line4}></span>
                                                 </Text>
                                             </Card.Header>
                                             <Card.Body
                                                 css={{
-                                                    backgroundImage: `url(${item?.img})`,
-                                                    backgroundPosition: 'top',
-                                                    backgroundSize: 'cover',
-                                                    backgroundRepeat: 'no-repeat',
                                                     pt: ref?.current?.clientHeight || 36,
                                                     paddingBottom: ref1?.current?.clientHeight || 36,
                                                 }}
-                                                className={projectCss.cardBody}
                                             >
-                                                <div className={projectCss.cardBodyBox}>
-                                                    <Row>
-                                                        <Col span={3}>
-                                                            <Text
-                                                                css={{
-                                                                    color: textColor
-                                                                }}
-                                                            >
-                                                                Description :
-                                                            </Text>
-                                                        </Col>
-                                                        <Col span={9}>
-                                                            <Text
-                                                                css={{
-                                                                    color: textColor
-                                                                }}
-                                                            >
-                                                                {item?.description}
-                                                            </Text>
-
-                                                        </Col>
-                                                    </Row>
-                                                    <Spacer y={0.8} />
-                                                    <Row>
-                                                        <Col span={3}>
-                                                            <Text
-                                                                css={{
-                                                                    color: textColor
-                                                                }}
-                                                            >
-                                                                Features :
-                                                            </Text>
-                                                        </Col>
-                                                        <Col span={9}>
-                                                            <Text
-                                                                css={{
-                                                                    color: textColor
-                                                                }}
-                                                            >
-                                                                {item?.feature}
-                                                            </Text>
-
-                                                        </Col>
-                                                    </Row>
-                                                    <Spacer y={0.8} />
-                                                    <Row>
-                                                        <Col span={3}>
-                                                            <Text
-                                                                css={{
-                                                                    color: textColor
-                                                                }}
-                                                            >
-                                                                Tools/Technology :
-                                                            </Text>
-                                                        </Col>
-                                                        <Col span={9}>
-                                                            <Text
-                                                                css={{
-                                                                    color: textColor
-                                                                }}
-                                                            >
-                                                                {Array.isArray(item?.technology) && item?.technology?.length > 0 && item.technology.map((tech, idx) => {
-                                                                    return idx === item?.technology?.length - 1 ? tech : `${tech}, `
-                                                                })}
-                                                            </Text>
-
-                                                        </Col>
-                                                    </Row>
+                                                <div>
+                                                    <Text
+                                                        css={{
+                                                            color: textHeadingColor,
+                                                            float: 'left',
+                                                            marginRight: 8
+                                                        }}
+                                                    >
+                                                        Description :
+                                                    </Text>
+                                                    <Text
+                                                        css={{
+                                                            color: textColor,
+                                                            display: 'contents',
+                                                        }}
+                                                    >
+                                                        {item?.description}
+                                                    </Text>
                                                 </div>
+
+                                                <Spacer y={0.6} />
+                                                <div>
+                                                    <Text
+                                                        css={{
+                                                            color: textHeadingColor,
+                                                            float: 'left',
+                                                            marginRight: 8
+                                                        }}
+                                                    >
+                                                        Features :
+                                                    </Text>
+                                                    <Text
+                                                        css={{
+                                                            color: textColor,
+                                                            display: 'contents'
+                                                        }}
+                                                    >
+                                                        {item?.feature?.split("\n").map((item, idx) => {
+                                                            return (
+                                                                <span key={idx} style={{ display: 'block' }}>
+                                                                    {idx + 1}. {item}
+                                                                </span>
+                                                            )
+                                                        })}
+                                                    </Text>
+
+                                                </div>
+                                                <Spacer y={0.6} />
+                                                <div>
+                                                    <Text
+                                                        css={{
+                                                            color: textHeadingColor,
+                                                            float: 'left',
+                                                            marginRight: 8,
+                                                        }}
+                                                    >
+                                                        Tools/Technology :
+                                                    </Text>
+                                                    <Text
+                                                        css={{
+                                                            color: textColor,
+                                                            display: 'contents'
+                                                        }}
+                                                    >
+                                                        {Array.isArray(item?.technology) && item?.technology?.length > 0 && item.technology.map((tech, idx) => {
+                                                            return idx === item?.technology?.length - 1 ? tech : `${tech}, `
+                                                        })}
+                                                    </Text>
+                                                </div>
+                                                <Spacer y={0.5} />
                                             </Card.Body>
                                             <Card.Footer
                                                 isBlurred
                                                 css={{
                                                     position: "absolute",
-                                                    bgBlur: "#ffffff66",
+                                                    bgBlur: "#ff95ff66",
                                                     borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
                                                     bottom: 0,
                                                     zIndex: 999,
@@ -256,11 +260,9 @@ const Project = ({ personalProject, contributeProject }) => {
 
 
                     </Grid.Container>
-
                 </div>
-
                 <Spacer y={1} />
-                <div className={projectCss.projectBox}>
+                <div>
                     <Text
                         h2
                         size={24}
@@ -271,6 +273,18 @@ const Project = ({ personalProject, contributeProject }) => {
                     >
                         Contribution Project
                     </Text>
+                    <Spacer y={1} />
+                    <Grid.Container gap={2.5}>
+                        {
+                            Array.isArray(contributeProject) && contributeProject.length > 0 && contributeProject.map(item => {
+                                return (
+                                    <Grid key={item.id} md={4} sm={6}>
+
+                                    </Grid>
+                                )
+                            })
+                        }
+                    </Grid.Container>
 
                 </div>
 

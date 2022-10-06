@@ -26,26 +26,68 @@
     opacity: 0;
 }
 
-.projectBox {}
-
-.cardBody {
+.cardHeading {
     position: relative;
-    z-index: 9;
+    z-index: 999;
+    padding: 6px 12px;
 }
 
-.cardBody::after {
-    content: '';
+.line1 {
+    content: "";
+    display: block;
     position: absolute;
-    top: 0;
+    width: 1px;
+    background-color: #FD841F;
     left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    z-index: 1;
+    bottom: 0;
 }
-.cardBodyBox{
-    z-index: 9;
+
+.line2 {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 1px;
+    background-color: #FD841F;
+    left: 0;
+    top: 0;
 }
+
+.line3 {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    background-color: #FD841F;
+    right: 0;
+    top: 0;
+}
+
+.line4 {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 1px;
+    background-color: #FD841F;
+    right: 0;
+    bottom: 0;
+}
+
+.cardContainer:hover .line1 {
+    animation: move1 1500ms 2 ease;
+}
+
+.cardContainer:hover .line2 {
+    animation: move2 1500ms 2 ease;
+}
+
+.cardContainer:hover .line3 {
+    animation: move3 1500ms 2 ease;
+}
+
+.cardContainer:hover .line4 {
+    animation: move4 1500ms 2 ease;
+}
+
 @media screen and (max-width: 650px) {
     .container:hover .headerText::after {
         width: 95px;
@@ -53,5 +95,84 @@
 
     .subTextHeader {
         font-size: 20px !important;
+    }
+}
+
+
+@keyframes move1 {
+    0% {
+        height: 100%;
+        bottom: 0;
+    }
+
+    54% {
+        height: 0;
+        bottom: 100%;
+    }
+
+    55% {
+        height: 0;
+        bottom: 0;
+    }
+
+    100% {
+        height: 100%;
+        bottom: 0;
+    }
+}
+
+@keyframes move2 {
+    0% {
+        width: 0;
+        left: 0;
+    }
+
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes move3 {
+    0% {
+        height: 100%;
+        top: 0;
+    }
+
+    54% {
+        height: 0;
+        top: 100%;
+    }
+
+    55% {
+        height: 0;
+        top: 0;
+    }
+
+    100% {
+        height: 100%;
+        top: 0;
+    }
+}
+
+@keyframes move4 {
+    0% {
+        width: 0;
+        right: 0;
+    }
+
+    55% {
+        width: 100%;
+        right: 0;
+    }
+
+    100% {
+        width: 0;
+        right: 100%;
     }
 }

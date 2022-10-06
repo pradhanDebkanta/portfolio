@@ -24,7 +24,7 @@ export const personalProjects = [
         id: "photo_gallery",
         name: "Photo Gallery",
         description: "This app basically searches images from the unsplash api and shows various dimension images with infinite scrolling effect.",
-        feature: "Search any image\n Infinite Scrolling Effect\n Light & Dark mode\n Can share, copy, download any image\n ",
+        feature: "Search a image by name.\nImages are fetch from the unsplash.\nShow the images according it's individual size.\n Infinite Scrolling Effect like Youtube.\n Light & Dark theme mode.\n Can share, copy, download a image.",
         technology: ["React", "Axios",],
         github: "https://github.com/pradhanDebkanta/photo-gallery",
         liveDemo: "https://imggalleryapp.netlify.app/",
@@ -194,8 +194,8 @@ export const contributeProject = [
         liveDemo: "https://apps.shopify.com/z08-heatmap-app"
     },
     {
-        id: "heatmap-app",
-        name: "Heatmap App",
+        id: "vidyayan-app",
+        name: "Vidyayan - Online Live, Coding, Home Tutor ",
         description: "",
         feature: "",
         contribution: "",
