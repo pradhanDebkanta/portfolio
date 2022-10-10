@@ -196,9 +196,9 @@ export const contributeProject = [
     {
         id: "vidyayan-app",
         name: "Vidyayan - Online Live, Coding, Home Tutor ",
-        description: "",
-        feature: "",
-        contribution: "",
+        description: "The Vidyayan is a well-known EdTech organization. Vidyayan is the tutor providing platform that connects students searching for a tutor with tutors looking to generate additional income. Vidyayan features India's best home and online tutors, ranked and reviewed by students. We aim to openly identify India's best tutors, and have them constantly prove their excellence by getting top reviews from students.",
+        feature: "Students can search for a tutor and send a request to the tutor.\n Tutor can see the students and accept or deny the students request.\n All the things can be monitored by the admin dashboard.\n Students can access online classroom, library, live, past, upcoming classes on their dashboard.\n Tutors can create a classroom, live classes, class-test, exam and send study materials to students.\n All are tracked by Admin dashboard and admin can allow or block students and also tutor.",
+        contribution: "I had built student, tutor, admin dashboard.\n I build online examination platform.\n I build all the things using React, Redux and integrate API with backend and build some API end-point also. ",
         technology: ["React Js", "Redux", "Meterial UI", "Bootstrap 4", "Node Js", "Express Js", "MongoDB",],
         liveDemo: "https://vidyayan.in/"
     },

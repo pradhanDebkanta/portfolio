@@ -1,3 +1,32 @@
 .container {
     min-height: 100vh;
 }
+
+.headerText {
+    position: relative;
+}
+
+.headerText::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    height: 2px;
+    width: 0px;
+    transition: all 0.5s ease;
+    opacity: 0;
+    background-color: #8758FF;
+}
+
+.container:hover .headerText::after {
+    opacity: 1;
+    transition: all 0.5s ease;
+    width: 108px;
+}
+
+@media screen and (max-width: 650px) {
+    .container:hover .headerText::after {
+        width: 70px;
+    }
+}

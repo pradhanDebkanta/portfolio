@@ -42,12 +42,24 @@ export async function getStaticProps() {
     const cp = await apiService.get('/api/project', { projectType: 'contribute' });
 
     if (pp.status !== 200) {
-      pp.data = [];
+      pp.data = {
+        projects: [],
+        totalItem: 0,
+      };
     } else if (cp.status !== 200) {
-      cp.data = [];
+      cp.data = {
+        projects: [],
+        totalItem: 0,
+      };
     } else if (pp.status !== 200 && cp.status !== 200) {
-      pp.data = [];
-      cp.data = [];
+      pp.data = {
+        projects: [],
+        totalItem: 0,
+      };
+      cp.data = {
+        projects: [],
+        totalItem: 0,
+      };
     } else {
       pp.data = JSON.parse(pp?.data);
       cp.data = JSON.parse(cp?.data);
@@ -56,8 +68,12 @@ export async function getStaticProps() {
 
     return {
       props: {
-        personalProject: pp.data,
-        contributeProject: cp.data,
+        personalProject: {
+          ...pp.data
+        },
+        contributeProject: {
+          ...cp.data,
+        }
       }
     }
   } catch (e) {
