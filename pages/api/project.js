@@ -1,4 +1,5 @@
-import { personalProjects, contributeProject } from "../../db/projectList"
+import { personalProjects, contributeProject } from "../../server/db/projectList"
+import { pagination } from "../../server/helper/project";
 
 export default function handler(req, res) {
   const { projectType, pageNo = 1, perPageItem = 5 } = req?.query;
@@ -22,15 +23,4 @@ export default function handler(req, res) {
       res.status(400).json({ message: "invalid request." });
     }
   }
-}
-
-function pagination(pageNo, itemPerPage, arr) {
-  let items = [];
-  if ((pageNo * itemPerPage) <= arr.length) {
-    items = arr.slice((pageNo - 1) * itemPerPage, pageNo * itemPerPage);
-  } else {
-    items = arr.slice((pageNo - 1) * itemPerPage, arr.length);
-  }
-  return items;
-
 }
