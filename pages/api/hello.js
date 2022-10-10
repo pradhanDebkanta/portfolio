@@ -1,5 +1,6 @@
-async function handler(req, res) {
+async function handlers(req, res) {
+    console.log(req)
     res.status(200).json({ name: 'hello' })
 };
 
-export default handler;
+export default handlers;
