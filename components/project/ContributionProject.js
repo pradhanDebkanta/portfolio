@@ -3,7 +3,7 @@ import projectCss from '../../assets/css/project/project.module.css';
 import { Text, useTheme, Spacer, Grid, Card, Row, Col, Tooltip, Button, Pagination } from '@nextui-org/react';
 import { IconContext } from 'react-icons';
 import { VscEye } from 'react-icons/vsc';
-import { getContributionProject } from '../../api/project';
+import { getContributionProject } from '../../action/project';
 
 const itemPerPage = 5;
 

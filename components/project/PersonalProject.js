@@ -4,7 +4,7 @@ import { Text, useTheme, Spacer, Grid, Card, Row, Col, Tooltip, Button, Paginati
 import { IconContext } from 'react-icons';
 import { VscGithubAlt, VscEye, VscDeviceCameraVideo } from 'react-icons/vsc';
 import { MdOutlineOndemandVideo } from 'react-icons/md';
-import { getPersonalProject } from '../../api/project';
+import { getPersonalProject } from '../../action/project';
 
 const itemPerPage = 5;
 
