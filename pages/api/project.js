@@ -1,8 +1,9 @@
 import { personalProjects, contributeProject } from "../../server/db/projectList"
 import { pagination } from "../../server/helper/project";
 
-export default function handler(req, res) {
+async function handler(req, res) {
   const { projectType, pageNo = 1, perPageItem = 5 } = req?.query;
+  console.log("dkkkkkkkkkkkk")
 
   if (req.method === "GET") {
     if (projectType === "personal") {
@@ -24,3 +25,5 @@ export default function handler(req, res) {
     }
   }
 }
+
+export default handler;
