@@ -82,54 +82,61 @@ const PersonalProject = ({ personalProject }) => {
                                             paddingBottom: ref1?.current?.clientHeight || 36,
                                         }}
                                     >
-                                        <div>
-                                            <Text
-                                                css={{
-                                                    color: textHeadingColor,
-                                                    float: 'left',
-                                                    marginRight: 8
-                                                }}
-                                            >
-                                                Description :
-                                            </Text>
-                                            <Text
-                                                css={{
-                                                    color: textColor,
-                                                    display: 'contents',
-                                                }}
-                                            >
-                                                {item?.description}
-                                            </Text>
-                                        </div>
+                                        {item?.description &&
+                                            <>
+                                                <div>
+                                                    <Text
+                                                        css={{
+                                                            color: textHeadingColor,
+                                                            float: 'left',
+                                                            marginRight: 8
+                                                        }}
+                                                    >
+                                                        Description :
+                                                    </Text>
+                                                    <Text
+                                                        css={{
+                                                            color: textColor,
+                                                            display: 'contents',
+                                                        }}
+                                                    >
+                                                        {item?.description}
+                                                    </Text>
+                                                </div>
 
-                                        <Spacer y={0.6} />
-                                        <div>
-                                            <Text
-                                                css={{
-                                                    color: textHeadingColor,
-                                                    float: 'left',
-                                                    marginRight: 8
-                                                }}
-                                            >
-                                                Features :
-                                            </Text>
-                                            <Text
-                                                css={{
-                                                    color: textColor,
-                                                    display: 'contents'
-                                                }}
-                                            >
-                                                {item?.feature?.split("\n").map((item, idx) => {
-                                                    return (
-                                                        <span key={idx} style={{ display: 'block' }}>
-                                                            {idx + 1}. {item}
-                                                        </span>
-                                                    )
-                                                })}
-                                            </Text>
+                                                <Spacer y={0.6} />
+                                            </>
+                                        }
+                                        {item?.feature && <>
+                                            <div>
+                                                <Text
+                                                    css={{
+                                                        color: textHeadingColor,
+                                                        float: 'left',
+                                                        marginRight: 8
+                                                    }}
+                                                >
+                                                    Features :
+                                                </Text>
+                                                <Text
+                                                    css={{
+                                                        color: textColor,
+                                                        display: 'contents'
+                                                    }}
+                                                >
+                                                    {item?.feature?.split("\n").map((item, idx) => {
+                                                        return (
+                                                            <span key={idx} style={{ display: 'block' }}>
+                                                                {idx + 1}. {item}
+                                                            </span>
+                                                        )
+                                                    })}
+                                                </Text>
 
-                                        </div>
-                                        <Spacer y={0.6} />
+                                            </div>
+                                            <Spacer y={0.6} />
+                                        </>
+                                        }
                                         <div>
                                             <Text
                                                 css={{
