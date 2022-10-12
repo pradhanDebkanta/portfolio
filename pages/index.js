@@ -38,7 +38,7 @@ export default function home({ personalProject, contributeProject }) {
 
 export async function getStaticProps() {
   try {
-    const pp = await apiService.get('/api/project', { projectType: 'personal' });
+    const pp = await apiService.get('/api/project', { projectType: 'personal', perPageItem: 6 });
     const cp = await apiService.get('/api/project', { projectType: 'contribute' });
 
     if (pp.status !== 200) {

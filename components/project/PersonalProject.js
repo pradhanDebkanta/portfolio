@@ -1,12 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react';
 import projectCss from '../../assets/css/project/project.module.css';
-import { Text, useTheme, Spacer, Grid, Card, Row, Col, Tooltip, Button, Pagination } from '@nextui-org/react';
+import { Text, useTheme, Spacer, Grid, Card, Row, Col, Tooltip, Button, Pagination, Modal, useModal } from '@nextui-org/react';
 import { IconContext } from 'react-icons';
 import { VscGithubAlt, VscEye, VscDeviceCameraVideo } from 'react-icons/vsc';
 import { MdOutlineOndemandVideo } from 'react-icons/md';
 import { getPersonalProject } from '../../action/project';
 
-const itemPerPage = 5;
+const itemPerPage = 6;
 
 const PersonalProject = ({ personalProject }) => {
     const { isDark } = useTheme();
@@ -15,11 +15,14 @@ const PersonalProject = ({ personalProject }) => {
     const iconColor = isDark ? '#fff' : '#7895B2';
     const textColor = isDark ? '#eeefee' : '#16213E';
     const textHeadingColor = isDark ? "$secondary" : "#8758FF";
+    const modalFooterBorder= isDark? '1px solid #665A48':'1px solid #DFF6FF';
     const ref = useRef('');
     const ref1 = useRef('');
     const [pProject, setPProject] = useState(personalProject.projects);
     const [ppTotalCount, setPpTotalCount] = useState(Math.ceil(personalProject.totalItem / itemPerPage));
     const [currentPP, setCurrentPP] = useState(null);
+    const { setVisible, bindings } = useModal();
+    const [selectedCard, setSelectedCard] = useState({});
 
     useEffect(() => {
         if (currentPP) {
@@ -32,6 +35,12 @@ const PersonalProject = ({ personalProject }) => {
 
     const gotoLink = link => {
         window?.open(link, '_blank')
+    }
+
+    const modalHandeler = (item) => {
+        // console.log(item);
+        setSelectedCard(item);
+        setVisible(true);
     }
 
     return (
@@ -52,7 +61,16 @@ const PersonalProject = ({ personalProject }) => {
                     Array.isArray(pProject) && pProject.length > 0 && pProject.map(item => {
                         return (
                             <Grid md={4} sm={6} xs={12} key={item.id}>
-                                <Card css={{ w: "100%", minHeight: "320px" }} variant='bordered' className={projectCss.cardContainer}>
+                                <Card
+                                    isPressable
+                                    css={{
+                                        w: "100%",
+                                        minHeight: "320px"
+                                    }}
+                                    variant='bordered'
+                                    className={projectCss.cardContainer}
+                                    onPress={() => { modalHandeler(item) }}
+                                >
                                     <Card.Header
                                         ref={ref}
                                         css={{
@@ -100,7 +118,7 @@ const PersonalProject = ({ personalProject }) => {
                                                             display: 'contents',
                                                         }}
                                                     >
-                                                        {item?.description}
+                                                        {item?.description?.slice(0, 150)}{" "}.........
                                                     </Text>
                                                 </div>
 
@@ -124,7 +142,7 @@ const PersonalProject = ({ personalProject }) => {
                                                         display: 'contents'
                                                     }}
                                                 >
-                                                    {item?.feature?.split("\n").map((item, idx) => {
+                                                    {item?.feature?.slice(0, 200).concat(".........").split("\n").map((item, idx) => {
                                                         return (
                                                             <span key={idx} style={{ display: 'block' }}>
                                                                 {idx + 1}. {item}
@@ -275,6 +293,198 @@ const PersonalProject = ({ personalProject }) => {
                     }}
                 />
             </Row>
+
+            <Modal
+                scroll
+                blur
+                closeButton
+                width="600px"
+                aria-labelledby="modal-title"
+                aria-describedby="modal-description"
+                {...bindings}
+                className={projectCss.modalContainer}
+            >
+                <Modal.Header>
+                    <Text
+                        h3
+                        size={20}
+                        css={{
+                            textGradient: cardHeaderColor
+                        }}
+                        className={projectCss.cardHeading}
+                        id="modal-title"
+                    >
+                        {selectedCard?.name}
+                        <span className={projectCss.line1}></span>
+                        <span className={projectCss.line2}></span>
+                        <span className={projectCss.line3}></span>
+                        <span className={projectCss.line4}></span>
+                    </Text>
+                </Modal.Header>
+                <Modal.Body id="modal-description">
+                    {selectedCard?.description &&
+                        <>
+                            <div>
+                                <Text
+                                    css={{
+                                        color: textHeadingColor,
+                                        float: 'left',
+                                        marginRight: 8
+                                    }}
+                                >
+                                    Description :
+                                </Text>
+                                <Text
+                                    css={{
+                                        color: textColor,
+                                        display: 'contents',
+                                    }}
+                                >
+                                    {selectedCard?.description}
+                                </Text>
+                            </div>
+
+                            <Spacer y={0.6} />
+                        </>
+                    }
+                    {selectedCard?.feature && <>
+                        <div>
+                            <Text
+                                css={{
+                                    color: textHeadingColor,
+                                    float: 'left',
+                                    marginRight: 8
+                                }}
+                            >
+                                Features :
+                            </Text>
+                            <Text
+                                css={{
+                                    color: textColor,
+                                    display: 'contents'
+                                }}
+                            >
+                                {selectedCard?.feature?.split("\n").map((item, idx) => {
+                                    return (
+                                        <span key={idx} style={{ display: 'block' }}>
+                                            {idx + 1}. {item}
+                                        </span>
+                                    )
+                                })}
+                            </Text>
+
+                        </div>
+                        <Spacer y={0.6} />
+                    </>
+                    }
+                    <div>
+                        <Text
+                            css={{
+                                color: textHeadingColor,
+                                float: 'left',
+                                marginRight: 8,
+                            }}
+                        >
+                            Tools/Technology :
+                        </Text>
+                        <Text
+                            css={{
+                                color: textColor,
+                                display: 'contents'
+                            }}
+                        >
+                            {Array.isArray(selectedCard?.technology) && selectedCard?.technology?.length > 0 && selectedCard.technology.map((tech, idx) => {
+                                return idx === selectedCard?.technology?.length - 1 ? tech : `${tech}, `
+                            })}
+                        </Text>
+                    </div>
+                    <Spacer y={0.5} />
+                </Modal.Body>
+                <Modal.Footer css={{ borderTop: modalFooterBorder }}>
+                    <Row>
+                        <Col>
+                            {selectedCard?.github && (
+                                <Row css={{
+                                    justifyContent: 'center',
+                                }}
+                                >
+                                    <Tooltip
+                                        content='Show codebase in github.'
+                                        contentColor={'secondary'}
+                                    >
+                                        <IconContext.Provider value={{ size: 20, color: iconColor, style: { marginRight: 8, marginTop: 3 } }}>
+                                            <VscGithubAlt />
+                                        </IconContext.Provider>
+                                    </Tooltip>
+
+                                    <Text
+                                        css={{
+                                            cursor: 'pointer',
+                                            color: textColor,
+                                        }}
+                                        onClick={() => gotoLink(selectedCard?.github)}
+                                    >
+                                        Github
+                                    </Text>
+                                </Row>
+                            )}
+                        </Col>
+                        <Col>
+                            {selectedCard?.videoLink && (
+                                <Row css={{
+                                    justifyContent: 'center',
+                                }}
+                                >
+                                    <Tooltip
+                                        content='Demo video'
+                                        contentColor={'secondary'}
+                                    >
+                                        <IconContext.Provider value={{ size: 20, color: iconColor, style: { marginRight: 8, marginTop: 3 } }}>
+                                            <MdOutlineOndemandVideo />
+                                        </IconContext.Provider>
+                                    </Tooltip>
+
+                                    <Text
+                                        css={{
+                                            cursor: 'pointer',
+                                            color: textColor,
+                                        }}
+                                        onClick={() => gotoLink(selectedCard?.videoLink)}
+                                    >
+                                        Video
+                                    </Text>
+                                </Row>
+                            )}
+                        </Col>
+                        <Col>
+                            {selectedCard?.liveDemo && (
+                                <Row css={{
+                                    justifyContent: 'center',
+                                }}>
+                                    <Tooltip
+                                        content='Website url'
+                                        contentColor={'secondary'}
+                                    >
+                                        <IconContext.Provider value={{ size: 20, color: iconColor, style: { marginRight: 8, marginTop: 3 } }}>
+                                            <VscEye />
+                                        </IconContext.Provider>
+                                    </Tooltip>
+                                    <Text
+                                        css={{
+                                            cursor: 'pointer',
+                                            color: textColor,
+                                        }}
+                                        onClick={() => gotoLink(selectedCard?.liveDemo)}
+                                    >
+                                        Visit site
+                                    </Text>
+                                </Row>
+                            )}
+                        </Col>
+                    </Row>
+                </Modal.Footer>
+
+            </Modal>
         </div>
     );
 
