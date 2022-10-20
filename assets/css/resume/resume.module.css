@@ -1,0 +1,26 @@
+.Container {
+    margin-top: 0.5rem;
+}
+
+.headerText {
+    position: relative;
+}
+
+.headerText::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    height: 2px;
+    width: 0;
+    opacity: 0;
+    background-color: blueviolet;
+    transform: translate(-50%, 0);
+    transition: all 0.5s ease;
+}
+
+.Container:hover .headerText::after{
+    opacity: 1;
+    width: 190px;
+    transition: all 0.5s ease;
+}

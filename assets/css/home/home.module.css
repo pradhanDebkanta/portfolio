@@ -2,7 +2,7 @@
 
 .container {
     min-height: 100vh;
-    max-height: 100vh;
+    /* max-height: 100vh; */
     padding-top: 2.5rem;
     background-image: url('../../images/background2.png');
     background-repeat: no-repeat;

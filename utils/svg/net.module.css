@@ -1,0 +1,54 @@
+.svgContainer {
+    max-width: 100%;
+    /* animation: rotate 7s linear  infinite; */
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        transition: all 0.3s linear ;
+    }
+
+    10% {
+        transform: rotate(30deg);
+        transition: all 0.3s linear ;
+    }
+    20% {
+        transform: rotate(60deg);
+        transition: all 0.3s linear ;
+    }
+    30% {
+        transform: rotate(90deg);
+        transition: all 0.3s linear ;
+    }
+    40% {
+        transform: rotate(120deg);
+        transition: all 0.3s linear ;
+    }
+    50% {
+        transform: rotate(150deg);
+        transition: all 0.3s linear ;
+    }
+    60% {
+        transform: rotate(190deg);
+        transition: all 0.3s linear ;
+    }
+    70% {
+        transform: rotate(230deg);
+        transition: all 0.3s linear ;
+    }
+    80% {
+        transform: rotate(270deg);
+        transition: all 0.3s linear ;
+    }
+    90% {
+        transform: rotate(300deg);
+        transition: all 0.3s linear ;
+    }
+
+    100% {
+        transform: rotate(340deg);
+        transition: all 0.3s linear ;
+    }
+
+}
