@@ -1,5 +1,6 @@
 .Container {
     margin-top: 0.5rem;
+    position: relative;
 }
 
 .headerText {
@@ -19,8 +20,48 @@
     transition: all 0.5s ease;
 }
 
-.Container:hover .headerText::after{
+.Container:hover .headerText::after {
     opacity: 1;
     width: 190px;
     transition: all 0.5s ease;
+}
+
+.resumeContainer {
+    position: relative;
+}
+
+.iframe {
+    width: 80%;
+    height: calc(100vh - 120px);
+}
+
+.download {
+    position: absolute;
+    top: 25px;
+    right: 0;
+}
+
+.downloadContainer>div {
+    position: absolute;
+    top: 20px;
+    margin-left: 20px;
+}
+
+
+@media screen and (min-width: 1280px) {
+    .downloadContainer>div {
+        margin-left: 11%;
+    }
+}
+@media screen and (max-width: 650px) {
+    .iframe {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .Container:hover .headerText::after {
+        width: 145px;
+    }
+
 }

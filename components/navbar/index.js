@@ -1,5 +1,6 @@
 import React, { useCallback, } from 'react';
 import NextLink from 'next/link';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useTheme as useNextTheme } from 'next-themes';
 import { Navbar, Switch, useTheme } from '@nextui-org/react';
@@ -89,7 +90,7 @@ const TopNavbar = () => {
     )
 }
 
-export default TopNavbar
+export default dynamic(() => Promise.resolve(TopNavbar), { ssr: false })
 
 
 
