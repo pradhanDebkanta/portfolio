@@ -91,8 +91,6 @@ const Resume = () => {
                     My Resume
                 </Text>
                 <Spacer y={1.5} />
-                <p>os : {window?.navigator?.userAgentData?.platform} ishas system viewer: {JSON.stringify(window?.navigator?.pdfViewerEnabled)}</p>
-
                 <Row justify='center' className={resumeCss.resumeContainer}>
                     {showCustomViewer && (
                         <div className={resumeCss.downloadContainer}>
