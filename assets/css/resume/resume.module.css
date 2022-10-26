@@ -1,6 +1,7 @@
 .Container {
     margin-top: 0.5rem;
     position: relative;
+    padding-bottom: 0.5rem;
 }
 
 .headerText {
