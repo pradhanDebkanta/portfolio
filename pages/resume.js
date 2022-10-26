@@ -33,20 +33,21 @@ const Resume = () => {
             console.log(e.message)
         }
     }
+
     useEffect(() => {
         if (window !== 'undefined') {
             let os = window?.navigator?.userAgentData?.platform;
             let isSystemPdfViewerEnabled = window?.navigator?.pdfViewerEnabled;
-            console.log(os, isSystemPdfViewerEnabled)
+
             if (isSystemPdfViewerEnabled) {
                 if (os === 'Android') {
                     setCustomViewer(true)
-                    fetchPdf();
+                    // fetchPdf();
                 } else {
                     setCustomViewer(false);
                 }
             } else {
-                fetchPdf();
+                // fetchPdf();
                 setCustomViewer(true)
             }
         }
@@ -90,6 +91,8 @@ const Resume = () => {
                     My Resume
                 </Text>
                 <Spacer y={1.5} />
+                <p>os : {window?.navigator?.userAgentData?.platform} ishas system viewer: {JSON.stringify(window?.navigator?.pdfViewerEnabled)}</p>
+
                 <Row justify='center' className={resumeCss.resumeContainer}>
                     {showCustomViewer && (
                         <div className={resumeCss.downloadContainer}>
@@ -111,11 +114,10 @@ const Resume = () => {
                     )}
                     <iframe
                         className={resumeCss.iframe}
-                        src="https://drive.google.com/file/d/1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr/preview"
-                        // src='https://drive.google.com/uc?id=1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr'
+                        src={showCustomViewer ? 'https://drive.google.com/file/d/1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr/preview' : 'https://drive.google.com/uc?id=1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr'}
                         title="Debkanta Pradhan's resume"
                         frameBorder='0px'
-                        // ref={iframeRef}
+                    // ref={iframeRef}
                     />
                 </Row>
             </div>
