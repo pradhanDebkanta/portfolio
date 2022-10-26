@@ -111,11 +111,11 @@ const Resume = () => {
                     )}
                     <iframe
                         className={resumeCss.iframe}
-                        // src="https://drive.google.com/file/d/1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr/preview"
-                        src='https://drive.google.com/uc?id=1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr'
+                        src="https://drive.google.com/file/d/1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr/preview"
+                        // src='https://drive.google.com/uc?id=1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr'
                         title="Debkanta Pradhan's resume"
                         frameBorder='0px'
-                        ref={iframeRef}
+                        // ref={iframeRef}
                     />
                 </Row>
             </div>
