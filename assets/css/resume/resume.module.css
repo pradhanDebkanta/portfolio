@@ -41,6 +41,11 @@
     right: 0;
 }
 
+.downloadContainer{
+    height: auto;
+    width: auto;
+}
+
 .downloadContainer>div {
     position: absolute;
     top: 20px;

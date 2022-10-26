@@ -1,4 +1,4 @@
-import React, { } from 'react'
+import React, { useRef, useEffect, useCallback } from 'react'
 import Head from 'next/head'
 import dynamic from 'next/dynamic';
 import { Container, Text, useTheme, Row, Spacer, Button, Tooltip } from '@nextui-org/react'
@@ -6,15 +6,46 @@ import resumeCss from '../assets/css/resume/resume.module.css';
 import home from '../assets/css/home/home.module.css';
 import { HiOutlineDocumentDownload } from 'react-icons/hi';
 import { IconContext } from 'react-icons';
-
+import { getPdf } from '../action/getPdf';
 
 const Resume = () => {
     const { isDark } = useTheme();
     const headerColor = isDark ? "45deg, $purple600 -20%, $pink600 100%" : "-20deg, #b721ff 0%, #21d4fd 100%";
+    const ref = useRef(null);
+    const iframeRef = useRef(null);
 
-    const downloadPdf = () => {
+    const fetchPdf = async () => {
+        try {
+            const pdf = await getPdf('https://drive.google.com/file/d/1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr/preview');
+            const blob = new Blob([pdf], { type: 'application/pdf' })
+            const url = URL.createObjectURL(blob);
+            console.log(pdf);
+            console.log(url);
+            iframeRef.current.src = url;
 
+            setTimeout(() => {
+                URL.revokeObjectURL(url);
+            }, 0)
+
+        } catch (e) {
+            console.log(e.message)
+        }
     }
+
+    const downloadPdf = useCallback(fileId => {
+        try {
+            if (fileId) {
+                let url = `https://drive.google.com/uc?id=${fileId}&export=download`;
+                ref.current.href = url;
+                ref.current.click();
+            } else {
+                console.log('invalid fileId.')
+            }
+        } catch (e) {
+            console.log(e.message);
+        }
+    }, []);
+
 
     return (
         <Container>
@@ -36,58 +67,34 @@ const Resume = () => {
                 >
                     My Resume
                 </Text>
-                {/* <div className={resumeCss.download}>
-                    <Tooltip
-                        content='download resume'
-                        contentColor={'secondary'}
-                        placement='left'
-                    >
-                        <IconContext.Provider
-                            onClick={() => { downloadPdf() }}
-                            value={{ size: 20, color: 'var(--nextui-colors-secondaryLightContrast)', style: {} }}
-                        >
-                            <HiOutlineDocumentDownload />
-                        </IconContext.Provider>
-                    </Tooltip>
-                </div> */}
                 <Spacer y={1.5} />
                 <Row justify='center' className={resumeCss.resumeContainer}>
-                    <div className={resumeCss.downloadContainer}>
+                    {/* <div className={resumeCss.downloadContainer}>
                         <Tooltip
                             content='download resume'
                             contentColor={'secondary'}
                             placement='right'
                         >
                             <IconContext.Provider
-                                onClick={() => { downloadPdf() }}
-                                value={{ size: 20, color: 'var(--nextui-colors-secondaryLightContrast)', style: {cursor: 'pointer'} }}
+                                value={{ size: 20, color: 'var(--nextui-colors-secondaryLightContrast)', style: { cursor: 'pointer' } }}
                             >
-                                <HiOutlineDocumentDownload />
+                                <HiOutlineDocumentDownload
+                                    onClick={() => { downloadPdf('1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr') }}
+                                />
                             </IconContext.Provider>
                         </Tooltip>
-                    </div>
-                    {/* <iframe
-                        className={resumeCss.iframe}
-
-                        src="https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf"
-                        allow="autoplay"
-                        title="Debkanta Pradhan's resume"
-                        frameBorder='0px'
-                        referrerPolicy='no-referrer'
-                    /> */}
-
-
-
+                    </div> */}
                     <iframe
                         className={resumeCss.iframe}
-
-                        src="https://drive.google.com/file/d/1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr/preview"
+                        // src="https://drive.google.com/file/d/1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr/preview"
+                        src='https://drive.google.com/uc?id=1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr'
                         title="Debkanta Pradhan's resume"
                         frameBorder='0px'
-                        referrerPolicy='origin-when-cross-origin'
+                        // ref={iframeRef}
                     />
                 </Row>
             </div>
+            {/* <a href='' download='debkanta_pradhan_Resume' ref={ref} style={{ display: 'none' }}>download</a> */}
         </Container>
     )
 }

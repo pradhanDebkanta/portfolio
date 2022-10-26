@@ -8,7 +8,7 @@ import { GiSkills, GiChariot, GiTiedScroll } from 'react-icons/gi';
 const NavItems = [
     {
         name: "Home",
-        url: "#home",
+        url: "/#home",
         key: 'home',
         icon: (
             <IconContext.Provider value={{ size: 18, style: { marginRight: 8 } }}>
@@ -20,7 +20,7 @@ const NavItems = [
     },
     {
         name: "Education",
-        url: "#education",
+        url: "/#education",
         key: 'education',
         icon: (
             <IconContext.Provider value={{ size: 18, style: { marginRight: 8 } }}>
@@ -32,7 +32,7 @@ const NavItems = [
     },
     {
         name: "Skills",
-        url: "#skills",
+        url: "/#skills",
         key: 'skills',
         icon: (
             <IconContext.Provider value={{ size: 18, style: { marginRight: 8 } }}>
@@ -44,7 +44,7 @@ const NavItems = [
     },
     {
         name: "Experience",
-        url: "#experience",
+        url: "/#experience",
         key: 'experience',
         icon: (
             <IconContext.Provider value={{ size: 18, style: { marginRight: 8 } }}>
@@ -56,7 +56,7 @@ const NavItems = [
     },
     {
         name: "Project",
-        url: "#project",
+        url: "/#project",
         key: 'project',
         icon: (
             <IconContext.Provider value={{ size: 18, style: { marginRight: 8 } }}>
@@ -68,7 +68,7 @@ const NavItems = [
     },
     {
         name: "Contact",
-        url: "#contact",
+        url: "/#contact",
         key: 'contact',
         icon: (
             <IconContext.Provider value={{ size: 18, style: { marginRight: 8 } }}>

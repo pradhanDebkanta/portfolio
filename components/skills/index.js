@@ -367,5 +367,5 @@ const Skills = () => {
     )
 }
 
-// export default dynamic(() => Promise.resolve(Skills));
+// export default dynamic(() => Promise.resolve(Skills),{ssr: false});
 export default Skills;
