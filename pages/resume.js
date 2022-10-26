@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useCallback } from 'react'
+import React, { useRef, useEffect, useCallback, useState } from 'react'
 import Head from 'next/head'
 import dynamic from 'next/dynamic';
 import { Container, Text, useTheme, Row, Spacer, Button, Tooltip } from '@nextui-org/react'
@@ -13,15 +13,17 @@ const Resume = () => {
     const headerColor = isDark ? "45deg, $purple600 -20%, $pink600 100%" : "-20deg, #b721ff 0%, #21d4fd 100%";
     const ref = useRef(null);
     const iframeRef = useRef(null);
+    const [showCustomViewer, setCustomViewer] = useState(false);
+
 
     const fetchPdf = async () => {
         try {
             const pdf = await getPdf('https://drive.google.com/file/d/1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr/preview');
-            const blob = new Blob([pdf], { type: 'application/pdf' })
+            const blob = new Blob([pdf], { type: 'text/html' })
             const url = URL.createObjectURL(blob);
-            console.log(pdf);
-            console.log(url);
             iframeRef.current.src = url;
+            // console.log(pdf);
+            // console.log(url);
 
             setTimeout(() => {
                 URL.revokeObjectURL(url);
@@ -31,6 +33,26 @@ const Resume = () => {
             console.log(e.message)
         }
     }
+    useEffect(() => {
+        if (window !== 'undefined') {
+            let os = window?.navigator?.userAgentData?.platform;
+            let isSystemPdfViewerEnabled = window?.navigator?.pdfViewerEnabled;
+            console.log(os, isSystemPdfViewerEnabled)
+            if (isSystemPdfViewerEnabled) {
+                if (os === 'Android') {
+                    setCustomViewer(true)
+                    fetchPdf();
+                } else {
+                    setCustomViewer(false);
+                }
+            } else {
+                fetchPdf();
+                setCustomViewer(true)
+            }
+        }
+
+
+    }, [])
 
     const downloadPdf = useCallback(fileId => {
         try {
@@ -69,32 +91,34 @@ const Resume = () => {
                 </Text>
                 <Spacer y={1.5} />
                 <Row justify='center' className={resumeCss.resumeContainer}>
-                    {/* <div className={resumeCss.downloadContainer}>
-                        <Tooltip
-                            content='download resume'
-                            contentColor={'secondary'}
-                            placement='right'
-                        >
-                            <IconContext.Provider
-                                value={{ size: 20, color: 'var(--nextui-colors-secondaryLightContrast)', style: { cursor: 'pointer' } }}
+                    {showCustomViewer && (
+                        <div className={resumeCss.downloadContainer}>
+                            <Tooltip
+                                content='download resume'
+                                contentColor={'secondary'}
+                                placement='right'
                             >
-                                <HiOutlineDocumentDownload
-                                    onClick={() => { downloadPdf('1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr') }}
-                                />
-                            </IconContext.Provider>
-                        </Tooltip>
-                    </div> */}
+                                <IconContext.Provider
+                                    value={{ size: 20, color: 'var(--nextui-colors-secondaryLightContrast)', style: { cursor: 'pointer' } }}
+                                >
+                                    <HiOutlineDocumentDownload
+                                        onClick={() => { downloadPdf('1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr') }}
+                                    />
+                                </IconContext.Provider>
+                            </Tooltip>
+                            <a href='' download='debkanta_pradhan_Resume' ref={ref} style={{ display: 'none' }}>download</a>
+                        </div>
+                    )}
                     <iframe
                         className={resumeCss.iframe}
                         // src="https://drive.google.com/file/d/1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr/preview"
                         src='https://drive.google.com/uc?id=1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr'
                         title="Debkanta Pradhan's resume"
                         frameBorder='0px'
-                        // ref={iframeRef}
+                        ref={iframeRef}
                     />
                 </Row>
             </div>
-            {/* <a href='' download='debkanta_pradhan_Resume' ref={ref} style={{ display: 'none' }}>download</a> */}
         </Container>
     )
 }
