@@ -78,7 +78,8 @@ const PersonalProject = ({ personalProject }) => {
                                             position: 'absolute',
                                             top: 5,
                                             zIndex: 999,
-                                        }}>
+                                        }}
+                                        >
                                         <Text
                                             h3
                                             size={20}
@@ -96,8 +97,8 @@ const PersonalProject = ({ personalProject }) => {
                                     </Card.Header>
                                     <Card.Body
                                         css={{
-                                            pt: ref?.current?.clientHeight || 36,
-                                            paddingBottom: ref1?.current?.clientHeight || 36,
+                                            pt: ref?.current?.clientHeight || 65,
+                                            paddingBottom: ref1?.current?.clientHeight || 65,
                                         }}
                                     >
                                         {item?.description &&
