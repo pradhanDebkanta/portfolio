@@ -1,10 +1,10 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, memo } from 'react';
 import NextLink from 'next/link';
 import { Navbar, Link } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import NavItems from './NavItem';
 
-const MobileNavbar = () => {
+const MobileNavbar = ({ toggler }) => {
     const router = useRouter();
 
     const activeRoute = useCallback((route) => {
@@ -15,9 +15,10 @@ const MobileNavbar = () => {
 
     }, [router]);
 
+
     return (
         <>
-            <Navbar.Collapse >
+            <Navbar.Collapse>
                 {NavItems.map((item, index) => (
                     <Navbar.CollapseItem
                         key={item.key}
@@ -35,10 +36,13 @@ const MobileNavbar = () => {
                                 color="inherit"
                                 css={{
                                     minWidth: "100%",
+                                    transform: 'translateX(0px)',
+                                    transition: 'all 0.3s ease',
+
                                     '&:hover': {
                                         color: 'var(--nextui--navbarItemHighlightTextColor)',
-                                        transform: 'translateX(4px)',
-                                        transition: 'all 0.3s ease'
+                                        transform: 'translateX(5px)',
+                                        transition: 'all 0.3s ease',
 
                                     },
                                     '@sm': {
@@ -46,7 +50,7 @@ const MobileNavbar = () => {
                                     },
 
                                 }}
-
+                                onClick={() => toggler(true)}
                             >
                                 {item.icon}
                                 {item.name}
@@ -59,4 +63,4 @@ const MobileNavbar = () => {
     )
 }
 
-export default MobileNavbar
+export default memo(MobileNavbar)

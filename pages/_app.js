@@ -4,7 +4,6 @@ import '../assets/css/globals.css';
 import { createTheme, NextUIProvider } from "@nextui-org/react"
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import TopNavbar from '../components/navbar';
-// const TopNavbar = dynamic(() => import('../components/navbar'), { ssr: false });
 
 const lightTheme = createTheme({
   type: 'light',
@@ -40,7 +39,8 @@ function MyApp({ Component, pageProps }) {
     >
       <NextUIProvider>
         <TopNavbar />
-        <Component {...pageProps} />
+          <Component {...pageProps} />
+        {/* </TopNavbar> */}
       </NextUIProvider>
     </NextThemesProvider>
   )

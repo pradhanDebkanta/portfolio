@@ -1,49 +1,50 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, } from "react";
 import { Box } from "./Box.js";
+import { throttle } from "../../utils/customHooks/throttle.js";
 
-export const Layout = ({ children }) => {
+export const Layout = ({ children, toggler }) => {
     const [offsetY, setOffsetY] = useState(window?.scrollY);
     const [dynamoStyle, setDynamoStyle] = useState({});
-    const [debounceStyle, setDebounceStyle] = useState(dynamoStyle);
 
-    const scrolling = useCallback(e => {
-        let currScroll = e.currentTarget.scrollY;
-        // console.log(currScroll, 'scrolling',offsetY);
-        if (offsetY > currScroll) {
-            // console.log('scroll up');
-            setDynamoStyle({
-                position: 'sticky',
-                top: 0,
-                zIndex: 999,
-            });
-        } else {
-            // console.log('scroll down');
-            setDynamoStyle({});
-        }
-        setOffsetY(currScroll);
+    const throttleScrolling = throttle((scrollY) => {
+        setOffsetY((prev) => {
+            if (prev > scrollY) {
+                // console.log('scroll up');
+                setDynamoStyle({
+                    transform: 'translateY(0px)',
+                })
 
-    }, [offsetY]);
+            } else {
+                // console.log('scroll down');
+                setDynamoStyle({
+                    transform: 'translateY(-100%)',
+                })
+            }
+            return scrollY;
+        });
 
-    useEffect(() => {
-        window?.addEventListener('scroll', scrolling, { passive: true })
-        return () => window?.removeEventListener('scroll', scrolling)
-    }, [offsetY]);
+    }, 1000);
 
     useEffect(() => {
-        if (JSON.stringify(dynamoStyle) !== JSON.stringify(debounceStyle)) {
-            // console.log('actual style change');
-            setDebounceStyle(dynamoStyle);
-        }
-    }, [dynamoStyle])
+        window?.addEventListener('scroll', (e) => { throttleScrolling(e.currentTarget.scrollY) });
+    }, []);
 
     return (
         <Box
             css={{
                 maxW: "100%",
-                ...debounceStyle
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                zIndex: 999,
+                transition: 'all ease 0.3s',
+                transform: `${toggler ? 'translateY(0px)' : dynamoStyle?.transform}`,
             }}
+
         >
             {children}
+
         </Box>
     );
 };

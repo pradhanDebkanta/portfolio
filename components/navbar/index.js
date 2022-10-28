@@ -1,9 +1,9 @@
-import React, { useCallback, } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import NextLink from 'next/link';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useTheme as useNextTheme } from 'next-themes';
-import { Navbar, Switch, useTheme } from '@nextui-org/react';
+import { Navbar, Switch, useTheme, useModal } from '@nextui-org/react';
 
 import { Layout } from './Layout';
 import NavItems from './NavItem';
@@ -14,9 +14,11 @@ import MyIcon from '../../utils/icons';
 const { MoonIcon, SunIcon } = MyIcon
 
 
-const TopNavbar = () => {
+const TopNavbar = ({ children }) => {
     const { setTheme } = useNextTheme();
     const { isDark, type } = useTheme();
+    const toggleRef = useRef(null);
+    const [toggleOpen, setToggleOpen] = useState(false)
 
     const router = useRouter();
 
@@ -29,15 +31,26 @@ const TopNavbar = () => {
 
     }, [router]);
 
+    const handleToggle = useCallback(flag => {
+        if (flag) {
+            toggleRef?.current?.click();
+        }
+    }, []);
+
 
     return (
-        <Layout>
+        <Layout toggler={toggleOpen}>
             <Navbar
                 // variant="sticky"
                 isCompact={true}
-
+                isBordered={isDark}
+            // shouldHideOnScroll
             >
-                <Navbar.Toggle showIn="xs" />
+                <Navbar.Toggle
+                    showIn="xs"
+                    ref={toggleRef}
+                    onChange={(value => setToggleOpen(value))}
+                />
 
                 <Navbar.Content
                     enableCursorHighlight
@@ -84,8 +97,10 @@ const TopNavbar = () => {
 
                 {/* for mobile navbar */}
 
-                <MobileNavbar />
+                <MobileNavbar toggler={handleToggle} />
             </Navbar>
+
+            {children}
         </Layout>
     )
 }
