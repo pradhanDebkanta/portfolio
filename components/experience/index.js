@@ -3,7 +3,6 @@ import { Container, Text, useTheme, Grid, Spacer, Row, Col } from '@nextui-org/r
 import home from '../../assets/css/home/home.module.css';
 import expCss from '../../assets/css/experience/experience.module.css';
 
-
 const Experience = () => {
     const { isDark } = useTheme();
     const headerColor = isDark ? "45deg, $purple600 -20%, $pink600 100%" : "-20deg, #b721ff 0%, #21d4fd 100%";

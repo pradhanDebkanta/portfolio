@@ -1,6 +1,10 @@
 .container {
-    /* min-height: 100vh; */
     padding-top: 3.2rem;
+    background-image: url('../../images/bgStar.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .headerText {

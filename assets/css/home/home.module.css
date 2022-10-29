@@ -1,4 +1,6 @@
-.globalContainer {}
+.globalContainer {
+    box-sizing: border-box;
+}
 
 .container {
     min-height: 100vh;
