@@ -40,7 +40,7 @@ const Contact = () => {
                 <Grid.Container gap={2}>
                     <Grid sm={6} justify='center'>
                         <div className={contactCss.contactBoxLeft}>
-                            <Row gap={0}>
+                            <Row gap={0} className={contactCss.translateX} >
                                 <Col span={1.5}
                                     css={{ cursor: 'pointer' }}
                                     onClick={() => { copyText('+91 7477671976') }}
@@ -65,7 +65,7 @@ const Contact = () => {
                                 </Col>
                             </Row>
                             <Spacer y={0.8} />
-                            <Row gap={0}>
+                            <Row gap={0} className={contactCss.translateX}>
                                 <Col span={1.5}
                                     css={{ cursor: 'pointer', color: textColor }}
                                     onClick={() => { copyText('debkantapradhan2000@gmail.com') }}
@@ -89,7 +89,7 @@ const Contact = () => {
                                 </Col>
                             </Row>
                             <Spacer y={0.8} />
-                            <Row gap={0}>
+                            <Row gap={0} className={contactCss.translateX}>
                                 <Col span={1.5}
                                     css={{ cursor: 'pointer', color: textColor }}
                                     onClick={() => { copyText('https://www.linkedin.com/in/debkanta-pradhan-4b6399193/') }}
@@ -113,7 +113,7 @@ const Contact = () => {
                                 </Col>
                             </Row>
                             <Spacer y={0.8} />
-                            <Row gap={0}>
+                            <Row gap={0} className={contactCss.translateX}>
                                 <Col span={1.5}
                                     css={{ cursor: 'pointer', color: textColor }}
                                     onClick={() => { copyText('https://github.com/pradhanDebkanta/') }}
@@ -140,7 +140,7 @@ const Contact = () => {
                     </Grid>
                     <Grid sm={6} justify='center'>
                         <div className={contactCss.contactBoxRight}>
-                            <Row gap={0}>
+                            <Row gap={0} className={contactCss.translateX}>
                                 <Col span={6}>
 
                                     <Text
@@ -172,7 +172,7 @@ const Contact = () => {
                                 </Col>
                             </Row>
                             <Spacer y={1} />
-                            <Row gap={0}>
+                            <Row gap={0} className={contactCss.translateX}>
                                 <Col>
                                     <Text
                                         size={16}

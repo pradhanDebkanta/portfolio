@@ -40,6 +40,15 @@
     margin-right: auto;
 }
 
+.translateX {
+    transform: translateX(0px);
+    transition: all 0.3s ease;
+}
+.translateX:hover{
+    transform: translateX(6px);
+    transition: all 0.3s ease;
+}
+
 @media screen and (max-width: 650px) {
     .container:hover .headingText::after {
         width: 90px;
