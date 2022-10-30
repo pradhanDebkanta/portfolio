@@ -7,14 +7,24 @@ import Project from '../components/project';
 import Contact from '../components/contact';
 import homeCss from '../assets/css/home/home.module.css';
 import apiService from '../services/apiService';
+import { useRouter } from 'next/router';
+import { useCallback } from 'react';
 
 
 export default function home({ personalProject, contributeProject }) {
-
+  const router = useRouter();
+  const handleTittle = useCallback(() => {
+    if (router.asPath === '/') {
+      return `Debkanta Pradhan's portfolio`
+    } else {
+      let section = router.asPath.replace('/#', '');
+      return `Debkanta Pradhan || ${section}`
+    }
+  }, [router]);
   return (
     <div>
       <Head>
-        <title>Debkanta Pradhan&#39;s portfolio</title>
+        <title>{handleTittle()}</title>
         <meta name="description" content="Full-stack developer, MERN stack developer" />
         <link rel="icon" href='/profile.png' />
       </Head>

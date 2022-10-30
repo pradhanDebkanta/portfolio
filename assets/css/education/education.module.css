@@ -1,6 +1,7 @@
 .container {
-    min-height: 100vh;
+    /* min-height: 100vh; */
     padding-top: 3.2rem;
+    width: 100%;
 }
 
 .headerText {
@@ -26,13 +27,89 @@
     opacity: 0;
 }
 
+.blob {
+    transition-delay: 500ms;
+    opacity: 0;
+    transition: opacity .7s cubic-bezier(0.16, 1, 0.3, 1), transform .7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(0.96);
+}
+
+.blobVisible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.line {
+    margin-right: -17px;
+    position: relative;
+    height: 300px;
+    width: 2px;
+    z-index: 1;
+    transition: transform .7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: 0 0;
+    transform: scaleY(0);
+    transition-duration: 900ms;
+    transition-delay: 100ms;
+}
+
+.greenLine {
+    background: linear-gradient(var(--nextui-colors-background), #2ea043, #2ea043, var(--nextui-colors-background));
+}
+
+.blueLine {
+    background: linear-gradient(var(--nextui-colors-background), #797ef9, #797ef9, var(--nextui-colors-background));
+}
+
+.orrangeLine {
+    background: linear-gradient(var(--nextui-colors-background), #ea6045, #ea6045, var(--nextui-colors-background));
+}
+
+.lineVisible {
+    transform: scaleY(1.15);
+}
+
+.iconImage {
+    height: 50px !important;
+    width: 50px !important;
+}
+
+.content {
+    transition: transform .7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: 0 0;
+    transform: scaleX(0);
+    transition-duration: 900ms;
+    transition-delay: 100ms;
+}
+
+.contentShow {
+    transform: scaleX(1);
+}
+
+
+@media screen and (max-width: 830px) {
+    .line {
+        margin-right: 0px;
+        width: 3px;
+    }
+}
+
 @media screen and (max-width: 650px) {
     .container:hover .headerText::after {
         width: 115px;
     }
+
+    .responsiveSubText {
+        font-size: 20px !important;
+    }
+
+    .iconImage {
+        height: 40px;
+        width: 40px;
+    }
 }
 
-/* npm i @antv/util
-
-npm i @ant-design/plots
-*/
+@media screen and (max-width: 425px) {
+    .responsiveSubText {
+        font-size: 18px !important;
+    }
+}
