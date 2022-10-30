@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 
 
-export default function home({ personalProject, contributeProject }) {
+export default function Index({ personalProject, contributeProject }) {
   const router = useRouter();
   const handleTittle = useCallback(() => {
     if (router.asPath === '/') {
