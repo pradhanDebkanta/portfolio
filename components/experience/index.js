@@ -160,12 +160,13 @@ const Experience = () => {
                                         </Row>
                                     </Grid>
                                     <Grid xs={12} sm={12} md={12}>
-                                        <Row>
+                                        <div>
                                             <Text
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: '#a371f7',
-                                                    fontFamily: '$mono'
+                                                    fontFamily: '$mono',
+                                                    float: 'left'
                                                 }}
                                             >
                                                 Working Tools/Technology:
@@ -173,6 +174,7 @@ const Experience = () => {
                                             <Text
                                                 css={{
                                                     letterSpacing: '1px',
+                                                    display: 'contents',
                                                     '@xsMax': {
                                                         fontSize: '14px'
                                                     },
@@ -180,15 +182,16 @@ const Experience = () => {
                                             >
                                                 {`Next Js, React Js, Shopify, Shopify App bridge, Node Js, MongoDB, Ant Design, Chakra UI, Polaris`}
                                             </Text>
-                                        </Row>
+                                        </div>
                                     </Grid>
                                     <Grid xs={12} sm={12} md={12}>
-                                        <Row>
+                                        <div>
                                             <Text
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: '#a371f7',
-                                                    fontFamily: '$mono'
+                                                    fontFamily: '$mono',
+                                                    float: 'left'
                                                 }}
                                             >
                                                 Contribution:
@@ -196,6 +199,7 @@ const Experience = () => {
                                             <Text
                                                 css={{
                                                     letterSpacing: '1px',
+                                                    display: 'contents',
                                                     '@xsMax': {
                                                         fontSize: '14px'
                                                     },
@@ -203,7 +207,7 @@ const Experience = () => {
                                             >
                                                 I had work on Shopify platform to build shopify admin app using the above mention technology. I had contributed on Wishlist app, Size chart app, Heatmap app and Bullet transfer app.
                                             </Text>
-                                        </Row>
+                                        </div>
                                     </Grid>
                                 </Grid.Container>
                             </div>
@@ -285,12 +289,13 @@ const Experience = () => {
                                         </Row>
                                     </Grid>
                                     <Grid xs={12} sm={12} md={12}>
-                                        <Row>
+                                        <div>
                                             <Text
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: '#7ee787',
-                                                    fontFamily: '$mono'
+                                                    fontFamily: '$mono',
+                                                    float: 'left'
                                                 }}
                                             >
                                                 Working Tools/Technology:
@@ -298,6 +303,7 @@ const Experience = () => {
                                             <Text
                                                 css={{
                                                     letterSpacing: '1px',
+                                                    display: 'contents',
                                                     '@xsMax': {
                                                         fontSize: '14px'
                                                     },
@@ -305,15 +311,16 @@ const Experience = () => {
                                             >
                                                 {`React Js, Redux, Node Js, Express Js, MongoDB, Material UI, Bootstrap 4`}
                                             </Text>
-                                        </Row>
+                                        </div>
                                     </Grid>
                                     <Grid xs={12} sm={12} md={12}>
-                                        <Row>
+                                        <div >
                                             <Text
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: '#7ee787',
-                                                    fontFamily: '$mono'
+                                                    fontFamily: '$mono',
+                                                    float: 'left',
                                                 }}
                                             >
                                                 Contribution:
@@ -321,6 +328,7 @@ const Experience = () => {
                                             <Text
                                                 css={{
                                                     letterSpacing: '1px',
+                                                    display: 'contents',
                                                     '@xsMax': {
                                                         fontSize: '14px'
                                                     },
@@ -328,7 +336,7 @@ const Experience = () => {
                                             >
                                                 I had work on there online EdTech platform. I had built student, tutor & admin dashboard, online examination, classroom, library system on their site. Also build & integrate API.
                                             </Text>
-                                        </Row>
+                                        </div>
                                     </Grid>
                                 </Grid.Container>
                             </div>
