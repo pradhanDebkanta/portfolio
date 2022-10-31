@@ -173,7 +173,7 @@ const Education = () => {
                                                     },
                                                 }}
                                             >
-                                                2019-20223
+                                                2019-2023
                                             </Text>
                                         </Row>
                                     </Grid>
