@@ -60,7 +60,6 @@ const Education = () => {
         contentObserver.observe(greenContentRef?.current);
         contentObserver.observe(orrangeContentRef?.current);
         contentObserver.observe(blueContentRef?.current);
-
     }, []);
 
     return (
@@ -83,7 +82,9 @@ const Education = () => {
                     <Row>
                         <Col span={1}>
                             <Row>
-                                <div className={`${eduCss.greenLine} ${eduCss.line}`} ref={greenLineRef}></div>
+                                <div className={`${eduCss.greenLine} ${eduCss.line}`} ref={greenLineRef}
+                                    style={greenContentRef?.current?.clientHeight < 300 ? { height: 300 } : { height: greenContentRef?.current?.clientHeight }}
+                                ></div>
                                 <GreenBlob height={300} className={eduCss.blob} ref={greenBlobRef} />
                             </Row>
                         </Col>
@@ -109,14 +110,14 @@ const Education = () => {
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: 'YellowGreen',
-                                                    fontFamily: 'monospace'
+                                                    fontFamily: '$mono'
                                                 }}
                                             >
                                                 Course:
                                             </Text>
                                             <Text
                                                 css={{
-                                                    fontFamily: 'cursive',
+                                                    // fontFamily: 'cursive',
                                                     letterSpacing: '1px',
                                                     '@xsMax': {
                                                         fontSize: '14px'
@@ -133,14 +134,14 @@ const Education = () => {
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: 'YellowGreen',
-                                                    fontFamily: 'monospace'
+                                                    fontFamily: '$mono'
                                                 }}
                                             >
                                                 Stream:
                                             </Text>
                                             <Text
                                                 css={{
-                                                    fontFamily: 'cursive',
+                                                    // fontFamily: 'cursive',
                                                     letterSpacing: '1px',
                                                     fontSize: '16px',
                                                     '@xsMax': {
@@ -159,14 +160,14 @@ const Education = () => {
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: 'YellowGreen',
-                                                    fontFamily: 'monospace'
+                                                    fontFamily: '$mono'
                                                 }}
                                             >
                                                 Duration:
                                             </Text>
                                             <Text
                                                 css={{
-                                                    fontFamily: 'cursive',
+                                                    // fontFamily: 'cursive',
                                                     letterSpacing: '1px',
                                                     '@xsMax': {
                                                         fontSize: '14px'
@@ -183,14 +184,14 @@ const Education = () => {
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: 'YellowGreen',
-                                                    fontFamily: 'monospace'
+                                                    fontFamily: '$mono'
                                                 }}
                                             >
                                                 Score:
                                             </Text>
                                             <Text
                                                 css={{
-                                                    fontFamily: 'cursive',
+                                                    // fontFamily: 'cursive',
                                                     letterSpacing: '1px',
                                                     '@xsMax': {
                                                         fontSize: '14px'
@@ -208,7 +209,9 @@ const Education = () => {
                     <Row>
                         <Col span={1}>
                             <Row>
-                                <div className={`${eduCss.blueLine} ${eduCss.line}`} ref={blueLineRef}></div>
+                                <div className={`${eduCss.blueLine} ${eduCss.line}`} ref={blueLineRef}
+                                    style={blueContentRef?.current?.clientHeight < 300 ? { height: 300 } : { height: blueContentRef?.current?.clientHeight }}
+                                ></div>
                                 <BlueBlob height={300} className={eduCss.blob} ref={blueBlobRef} />
                             </Row>
                         </Col>
@@ -234,14 +237,14 @@ const Education = () => {
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: '#5F9DF7',
-                                                    fontFamily: 'monospace'
+                                                    fontFamily: '$mono'
                                                 }}
                                             >
                                                 Course:
                                             </Text>
                                             <Text
                                                 css={{
-                                                    fontFamily: 'cursive',
+                                                    // fontFamily: 'cursive',
                                                     letterSpacing: '1px',
                                                     '@xsMax': {
                                                         fontSize: '14px'
@@ -258,14 +261,14 @@ const Education = () => {
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: '#5F9DF7',
-                                                    fontFamily: 'monospace'
+                                                    fontFamily: '$mono'
                                                 }}
                                             >
                                                 Board:
                                             </Text>
                                             <Text
                                                 css={{
-                                                    fontFamily: 'cursive',
+                                                    // fontFamily: 'cursive',
                                                     letterSpacing: '1px',
                                                     '@xsMax': {
                                                         fontSize: '14px'
@@ -282,14 +285,14 @@ const Education = () => {
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: '#5F9DF7',
-                                                    fontFamily: 'monospace'
+                                                    fontFamily: '$mono'
                                                 }}
                                             >
                                                 Stream:
                                             </Text>
                                             <Text
                                                 css={{
-                                                    fontFamily: 'cursive',
+                                                    // fontFamily: 'cursive',
                                                     letterSpacing: '1px',
                                                     fontSize: '16px',
                                                     '@xsMax': {
@@ -308,14 +311,14 @@ const Education = () => {
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: '#5F9DF7',
-                                                    fontFamily: 'monospace'
+                                                    fontFamily: '$mono'
                                                 }}
                                             >
                                                 Duration:
                                             </Text>
                                             <Text
                                                 css={{
-                                                    fontFamily: 'cursive',
+                                                    // fontFamily: 'cursive',
                                                     letterSpacing: '1px',
                                                     '@xsMax': {
                                                         fontSize: '14px'
@@ -332,14 +335,14 @@ const Education = () => {
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: '#5F9DF7',
-                                                    fontFamily: 'monospace'
+                                                    fontFamily: '$mono'
                                                 }}
                                             >
                                                 Score:
                                             </Text>
                                             <Text
                                                 css={{
-                                                    fontFamily: 'cursive',
+                                                    // fontFamily: 'cursive',
                                                     letterSpacing: '1px',
                                                     '@xsMax': {
                                                         fontSize: '14px'
@@ -357,7 +360,9 @@ const Education = () => {
                     <Row>
                         <Col span={1}>
                             <Row>
-                                <div className={`${eduCss.orrangeLine} ${eduCss.line}`} ref={orrangeLineRef}></div>
+                                <div className={`${eduCss.orrangeLine} ${eduCss.line}`} ref={orrangeLineRef}
+                                    style={orrangeContentRef?.current?.clientHeight < 300 ? { height: 300 } : { height: orrangeContentRef?.current?.clientHeight }}
+                                ></div>
                                 <OrrangeBlob height={300} className={eduCss.blob} ref={orrangeBlobRef} />
                             </Row>
                         </Col>
@@ -383,14 +388,14 @@ const Education = () => {
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: '#ea6045',
-                                                    fontFamily: 'monospace'
+                                                    fontFamily: '$mono'
                                                 }}
                                             >
                                                 Course:
                                             </Text>
                                             <Text
                                                 css={{
-                                                    fontFamily: 'cursive',
+                                                    // fontFamily: 'cursive',
                                                     letterSpacing: '1px',
                                                     '@xsMax': {
                                                         fontSize: '14px'
@@ -407,14 +412,14 @@ const Education = () => {
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: 'rgb(234 96 69)',
-                                                    fontFamily: 'monospace'
+                                                    fontFamily: '$mono'
                                                 }}
                                             >
                                                 Board:
                                             </Text>
                                             <Text
                                                 css={{
-                                                    fontFamily: 'cursive',
+                                                    // fontFamily: 'cursive',
                                                     letterSpacing: '1px',
                                                     '@xsMax': {
                                                         fontSize: '14px'
@@ -431,14 +436,14 @@ const Education = () => {
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: '#ea6045',
-                                                    fontFamily: 'monospace'
+                                                    fontFamily: '$mono'
                                                 }}
                                             >
                                                 Duration:
                                             </Text>
                                             <Text
                                                 css={{
-                                                    fontFamily: 'cursive',
+                                                    // fontFamily: 'cursive',
                                                     letterSpacing: '1px',
                                                     '@xsMax': {
                                                         fontSize: '14px'
@@ -455,14 +460,14 @@ const Education = () => {
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: '#ea6045',
-                                                    fontFamily: 'monospace'
+                                                    fontFamily: '$mono'
                                                 }}
                                             >
                                                 Score:
                                             </Text>
                                             <Text
                                                 css={{
-                                                    fontFamily: 'cursive',
+                                                    // fontFamily: 'cursive',
                                                     letterSpacing: '1px',
                                                     '@xsMax': {
                                                         fontSize: '14px'

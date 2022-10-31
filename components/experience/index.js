@@ -103,7 +103,10 @@ const Experience = () => {
                                     size={22}
                                     css={{
                                         textAlign: 'left',
-                                        color: '#a371f7'
+                                        color: '#a371f7',
+                                        '@xsMax': {
+                                            marginLeft: '18px'
+                                        }
                                     }}
                                     className={`${eduCss.responsiveSubText}`}
                                 >
@@ -224,7 +227,10 @@ const Experience = () => {
                                     size={22}
                                     css={{
                                         textAlign: 'left',
-                                        color: '#7ee787'
+                                        color: '#7ee787',
+                                        '@xsMax': {
+                                            marginLeft: '18px'
+                                        }
                                     }}
                                     className={`${eduCss.responsiveSubText}`}
                                 >
@@ -345,7 +351,10 @@ const Experience = () => {
                                     size={22}
                                     css={{
                                         textAlign: 'left',
-                                        color: '#ffa28b'
+                                        color: '#ffa28b',
+                                        '@xsMax': {
+                                            marginLeft: '18px'
+                                        }
                                     }}
                                     className={`${eduCss.responsiveSubText}`}
                                 >
