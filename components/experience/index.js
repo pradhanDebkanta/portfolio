@@ -201,6 +201,7 @@ const Experience = () => {
                                                     },
                                                 }}
                                             >
+                                                I had work on Shopify platform to build shopify admin app using the above mention technology. I had contributed on Wishlist app, Size chart app, Heatmap app and Bullet transfer app.
                                             </Text>
                                         </Row>
                                     </Grid>
@@ -325,6 +326,7 @@ const Experience = () => {
                                                     },
                                                 }}
                                             >
+                                                I had work on there online EdTech platform. I had built student, tutor & admin dashboard, online examination, classroom, library system on their site. Also build & integrate API.
                                             </Text>
                                         </Row>
                                     </Grid>
@@ -449,6 +451,7 @@ const Experience = () => {
                                                     },
                                                 }}
                                             >
+                                                I had work on there online EdTech platform. I had built student, tutor & admin dashboard, online examination, classroom, library system on their site. Also build & integrate API.
                                             </Text>
                                         </Row>
                                     </Grid>

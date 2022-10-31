@@ -40,6 +40,11 @@ const Home = () => {
                 <Grid.Container gap={1} css={{ justifyContent: 'center' }}>
                     <Grid sm={8} justify="center">
                         <div className={home.headingBox}>
+                            <Spacer y={2.6} css={{
+                                '@smMax': {
+                                    display: 'none'
+                                }
+                            }} />
                             <div>
                                 <Text
                                     h1
@@ -84,11 +89,26 @@ const Home = () => {
                                     size={20}
                                     css={{
                                         color: textColor,
-                                        textAlign: 'center'
+                                        textAlign: 'center',
+                                        '@xsMax': {
+                                            fontSize: 18
+                                        }
                                     }}
 
                                 >
                                     I&#39;m a <strong style={{ color: highlightColor }}>MERN</strong> stack web developer.
+                                </Text>
+                                <Text
+                                    size={18}
+                                    css={{
+                                        color: textColor,
+                                        textAlign: 'center',
+                                        '@xsMax': {
+                                            fontSize: 16
+                                        }
+                                    }}
+                                >
+                                    I am here to develope a creative and high quality UI.
                                 </Text>
                             </div>
                             <Spacer y={1} />
