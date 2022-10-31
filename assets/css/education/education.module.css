@@ -28,15 +28,20 @@
 }
 
 .blob {
-    transition-delay: 500ms;
-    opacity: 0;
+    transition-delay: 100ms;
+    opacity: 0.4;
     transition: opacity .7s cubic-bezier(0.16, 1, 0.3, 1), transform .7s cubic-bezier(0.16, 1, 0.3, 1);
-    transform: scale(0.96);
+    /* transform: scale(0.96); */
+    transform: scaleX(0);
+    transition-duration: 1s;
+    transform-origin: 100% 100%;
 }
 
 .blobVisible {
     opacity: 1;
-    transform: scale(1);
+    /* transform: scale(1); */
+    transform: scaleX(1);
+
 }
 
 .line {
