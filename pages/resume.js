@@ -8,6 +8,9 @@ import { HiOutlineDocumentDownload } from 'react-icons/hi';
 import { IconContext } from 'react-icons';
 import { getPdf } from '../action/getPdf';
 
+const newPdfId = '1GF7zT_I11vNLGYIUF8nHeLEeVntcQ95Q';
+const pdfId = '1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr';
+
 const Resume = () => {
     const { isDark } = useTheme();
     const headerColor = isDark ? "45deg, $purple600 -20%, $pink600 100%" : "-20deg, #b721ff 0%, #21d4fd 100%";
@@ -18,7 +21,7 @@ const Resume = () => {
 
     const fetchPdf = async () => {
         try {
-            const pdf = await getPdf('https://drive.google.com/file/d/1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr/preview');
+            const pdf = await getPdf(`https://drive.google.com/file/d/${newPdfId}/preview`);
             const blob = new Blob([pdf], { type: 'text/html' })
             const url = URL.createObjectURL(blob);
             iframeRef.current.src = url;
@@ -103,7 +106,7 @@ const Resume = () => {
                                     value={{ size: 20, color: 'var(--nextui-colors-secondaryLightContrast)', style: { cursor: 'pointer' } }}
                                 >
                                     <HiOutlineDocumentDownload
-                                        onClick={() => { downloadPdf('1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr') }}
+                                        onClick={() => { downloadPdf(newPdfId) }}
                                     />
                                 </IconContext.Provider>
                             </Tooltip>
@@ -112,7 +115,7 @@ const Resume = () => {
                     )}
                     <iframe
                         className={resumeCss.iframe}
-                        src={showCustomViewer ? 'https://drive.google.com/file/d/1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr/preview' : 'https://drive.google.com/uc?id=1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr'}
+                        src={showCustomViewer ? `https://drive.google.com/file/d/${newPdfId}/preview` : `https://drive.google.com/uc?id=${newPdfId}`}
                         title="Debkanta Pradhan's resume"
                         frameBorder='0px'
                     // ref={iframeRef}
