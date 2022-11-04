@@ -3,6 +3,7 @@ import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 import { RiContactsLine } from 'react-icons/ri';
 import { SiHomeadvisor, } from 'react-icons/si';
 import { GiSkills, GiChariot, GiTiedScroll } from 'react-icons/gi';
+import { FaRegAddressCard } from 'react-icons/fa';
 
 
 const NavItems = [
@@ -62,6 +63,18 @@ const NavItems = [
             <IconContext.Provider value={{ size: 18, style: { marginRight: 8 } }}>
                 <span>
                     <AiOutlineFundProjectionScreen />
+                </span>
+            </IconContext.Provider>
+        )
+    },
+    {
+        name: "Resume",
+        url: "/resume",
+        key: 'resume',
+        icon: (
+            <IconContext.Provider value={{ size: 18, style: { marginRight: 8 } }}>
+                <span>
+                    <FaRegAddressCard />
                 </span>
             </IconContext.Provider>
         )
