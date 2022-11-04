@@ -25,7 +25,7 @@ export default function Index({ personalProject, contributeProject }) {
     <div>
       <Head>
         <title>{handleTittle()}</title>
-        <meta name="description" content="Full-stack developer, MERN stack developer" />
+        <meta name="description" content="Debkanta Pradhan Profile. Pursuing B.Tech on ECE from University of Engineering & Management jaipur. I am a Full-stack developer( MERN stack). I am looking for a fulltime job on this domain." />
         <link rel="icon" href='/profile.png' />
       </Head>
       <div>

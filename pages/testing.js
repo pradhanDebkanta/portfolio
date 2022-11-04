@@ -25,14 +25,6 @@ const Testing = () => {
 
     return (
         <div>
-
-            windowSize : {windowSize} px
-            <br />
-
-            <input onChange={(e) => debounceUpdate(e.target.value)} />
-
-            <br />
-            <p>{name}</p>
         </div>
     )
 }
