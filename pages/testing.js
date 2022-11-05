@@ -23,12 +23,25 @@ const Testing = () => {
     //     }
     // }, []);
 
+    const [res, setRes] = useState({});
+
     useEffect(() => {
-        getVisitors();
+        getVisitors().then(data => {
+            setRes(data);
+        })
     }, [])
 
     return (
-        <div>
+        <div style={{ marginTop: '100px' }}>
+            <h2>
+                total visit: {res?.totalUniqueVisit}
+            </h2>
+            <h2>
+                ip: {res?.ip}
+            </h2>
+            <h2>
+                api hit : {res?.apiHit}
+            </h2>
         </div>
     )
 }
