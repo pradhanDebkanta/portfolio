@@ -179,6 +179,7 @@ const Skills = () => {
                                                         <Tooltip
                                                             content={`${item?.exp || 40}%`}
                                                             contentColor='success'
+                                                            color='invert'
                                                         >
                                                             <Text b >{item.name}</Text>
                                                             <Spacer y={0.2} />
@@ -235,6 +236,7 @@ const Skills = () => {
                                                         <Tooltip
                                                             content={`${item?.exp || 40}%`}
                                                             contentColor='success'
+                                                            color={'invert'}
                                                         >
                                                             <Text b >{item.name}</Text>
                                                             <Spacer y={0.2} />
@@ -290,6 +292,7 @@ const Skills = () => {
                                                         <Tooltip
                                                             content={`${item?.exp || 40}%`}
                                                             contentColor='success'
+                                                            color={'invert'}
                                                         >
                                                             <Text b >{item.name}</Text>
                                                             <Spacer y={0.2} />
@@ -345,6 +348,7 @@ const Skills = () => {
                                                         <Tooltip
                                                             content={`${item?.exp || 40}%`}
                                                             contentColor='success'
+                                                            color={'invert'}
                                                         >
                                                             <Text b >{item.name}</Text>
                                                             <Spacer y={0.2} />
