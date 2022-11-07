@@ -1,7 +1,7 @@
 import React from 'react';
 import skill from '../../assets/css/skills/skills.module.css';
 import home from '../../assets/css/home/home.module.css';
-import { Container, Grid, Row, Spacer, Text, useTheme, Card, Collapse, Button } from '@nextui-org/react';
+import { Container, Grid, Row, Spacer, Text, useTheme, Card, Collapse, Button, Progress, Tooltip } from '@nextui-org/react';
 import Image from 'next/image';
 import skill_img from '../../assets/images/skill_img.png';
 import { BsCodeSlash } from 'react-icons/bs';
@@ -17,14 +17,17 @@ const programmingLanguage = [
     {
         name: 'JavaScript',
         src: '/javascript.svg',
+        exp: 80,
     },
     {
         name: 'C++',
         src: '/cpp.png',
+        exp: 70,
     },
     {
         name: 'C',
         src: '/c.svg',
+        exp: 70,
     },
 ];
 
@@ -32,71 +35,85 @@ const libraries = [
     {
         name: 'React Js',
         src: '/react.svg',
+        exp: 80,
     },
     {
         name: 'Next Js',
         src: '/next-js.svg',
+        exp: 75,
     },
     {
         name: 'Node Js',
         src: '/node.svg',
+        exp: 65,
     },
     {
         name: 'Express Js',
         src: '/expressjs.svg',
+        exp: 65,
     },
     {
         name: 'Mongoose',
         src: 'https://avatars.githubusercontent.com/u/7552965?s=400&v=4',
+        exp: 60,
     },
     {
         name: 'Redux',
         src: '/redux.svg',
+        exp: 80,
     },
     {
         name: 'React Query',
         src: '/reactquery.png',
+        exp: 60,
     },
     {
         name: 'Ant-Design',
         src: '/antd.svg',
+        exp: 80,
     },
     {
         name: 'Chakra UI',
         src: '/chakra.jpg',
+        exp: 70,
     },
     {
         name: 'Next UI',
         src: '/nextui.png',
+        exp: 80,
     },
     {
         name: 'Meterial UI',
         src: '/mui.svg',
+        exp: 65,
     },
     {
         name: 'Polaris',
         src: '/shopify.svg',
+        exp: 80,
     },
 ];
 
 const tools = [
     {
         name: 'Shopify',
-        src: '/shopify-tool.svg'
+        src: '/shopify-tool.svg',
+        exp: 70,
     }
 ];
 
 const database = [
     {
         name: 'MongoDB',
-        src: '/mongodb.svg'
+        src: '/mongodb.svg',
+        exp: 65,
     }
 ]
 
 
 
 const Skills = () => {
-    const router= useRouter();
+    const router = useRouter();
     const { isDark } = useTheme();
     const headerColor = isDark ? "45deg, $purple600 -20%, $pink600 100%" : "-20deg, #b721ff 0%, #21d4fd 100%";
     const subHeaderColor = isDark ? "45deg, $purple600 -20%, $pink600 100%" : "45deg, #21D4FD 0%, #B721FF 33%, #7434db 94%";
@@ -158,13 +175,22 @@ const Skills = () => {
                                                             }}
                                                         />
                                                     </Card.Body>
-                                                    <Card.Footer css={{ justifyItems: "flex-start" }}>
-                                                        <Row wrap="wrap" justify="space-between" align="center">
-                                                            <Text b>{item.name}</Text>
-                                                            {/* <Text css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
-                                                    20
-                                                </Text> */}
-                                                        </Row>
+                                                    <Card.Footer css={{ display: 'block' }} className={skill.tooltip}>
+                                                        <Tooltip
+                                                            content={`${item?.exp || 40}%`}
+                                                            contentColor='success'
+                                                        >
+                                                            <Text b >{item.name}</Text>
+                                                            <Spacer y={0.2} />
+                                                            <Progress
+                                                                size={'xs'}
+                                                                color='success'
+                                                                value={item?.exp || 40}
+                                                                shadow
+                                                                striped
+                                                            ></Progress>
+                                                        </Tooltip>
+                                                        <Spacer y={0.2} />
                                                     </Card.Footer>
                                                 </Card>
                                             </Grid>
@@ -205,13 +231,22 @@ const Skills = () => {
                                                             }}
                                                         />
                                                     </Card.Body>
-                                                    <Card.Footer css={{ justifyItems: "flex-start" }}>
-                                                        <Row wrap="wrap" justify="space-between" align="center">
-                                                            <Text b>{item.name}</Text>
-                                                            {/* <Text css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
-                                                    20
-                                                </Text> */}
-                                                        </Row>
+                                                    <Card.Footer css={{ display: 'block' }} className={skill.tooltip}>
+                                                        <Tooltip
+                                                            content={`${item?.exp || 40}%`}
+                                                            contentColor='success'
+                                                        >
+                                                            <Text b >{item.name}</Text>
+                                                            <Spacer y={0.2} />
+                                                            <Progress
+                                                                size={'xs'}
+                                                                color='success'
+                                                                value={item?.exp || 40}
+                                                                shadow
+                                                                striped
+                                                            ></Progress>
+                                                        </Tooltip>
+                                                        <Spacer y={0.2} />
                                                     </Card.Footer>
                                                 </Card>
                                             </Grid>
@@ -251,13 +286,22 @@ const Skills = () => {
                                                             }}
                                                         />
                                                     </Card.Body>
-                                                    <Card.Footer css={{ justifyItems: "flex-start" }}>
-                                                        <Row wrap="wrap" justify="space-between" align="center">
-                                                            <Text b>{item.name}</Text>
-                                                            {/* <Text css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
-                                                    20
-                                                </Text> */}
-                                                        </Row>
+                                                    <Card.Footer css={{ display: 'block' }} className={skill.tooltip}>
+                                                        <Tooltip
+                                                            content={`${item?.exp || 40}%`}
+                                                            contentColor='success'
+                                                        >
+                                                            <Text b >{item.name}</Text>
+                                                            <Spacer y={0.2} />
+                                                            <Progress
+                                                                size={'xs'}
+                                                                color='success'
+                                                                value={item?.exp || 40}
+                                                                shadow
+                                                                striped
+                                                            ></Progress>
+                                                        </Tooltip>
+                                                        <Spacer y={0.2} />
                                                     </Card.Footer>
                                                 </Card>
                                             </Grid>
@@ -297,13 +341,22 @@ const Skills = () => {
                                                             }}
                                                         />
                                                     </Card.Body>
-                                                    <Card.Footer css={{ justifyItems: "flex-start" }}>
-                                                        <Row wrap="wrap" justify="space-between" align="center">
-                                                            <Text b>{item.name}</Text>
-                                                            {/* <Text css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
-                                                    20
-                                                </Text> */}
-                                                        </Row>
+                                                    <Card.Footer css={{ display: 'block' }} className={skill.tooltip}>
+                                                        <Tooltip
+                                                            content={`${item?.exp || 40}%`}
+                                                            contentColor='success'
+                                                        >
+                                                            <Text b >{item.name}</Text>
+                                                            <Spacer y={0.2} />
+                                                            <Progress
+                                                                size={'xs'}
+                                                                color='success'
+                                                                value={item?.exp || 40}
+                                                                shadow
+                                                                striped
+                                                            ></Progress>
+                                                        </Tooltip>
+                                                        <Spacer y={0.2} />
                                                     </Card.Footer>
                                                 </Card>
                                             </Grid>
@@ -318,7 +371,7 @@ const Skills = () => {
                                     rounded
                                     ripple={false}
                                     size='sm'
-                                    onClick={()=>{router.push('/resume')}}
+                                    onClick={() => { router.push('/resume') }}
                                     css={{
                                         background: '#F07DEA',
                                         fontWeight: '$semibold',
@@ -367,4 +420,4 @@ const Skills = () => {
     )
 }
 
-export default dynamic(() => Promise.resolve(Skills),{ssr: false});
+export default dynamic(() => Promise.resolve(Skills), { ssr: false });

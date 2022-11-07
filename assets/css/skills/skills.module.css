@@ -1,13 +1,14 @@
 .container {
     margin-bottom: 1.5rem;
-    padding-top: 3.2rem; 
+    padding-top: 3.2rem;
     position: relative;
     /* background-image: url('../../images/net.svg');   */
     /* background-position: left; */
     /* background-repeat: no-repeat; */
     /* background-attachment: fixed; */
 }
-.netContainer{
+
+.netContainer {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -37,16 +38,21 @@
     width: 108px;
 }
 
-.box{
+.box {
     width: 100%;
     z-index: 99;
     padding-bottom: 2rem;
+}
+
+.tooltip>div {
+    width: 100% !important;
 }
 
 @media screen and (max-width: 650px) {
     .container:hover .headerText::after {
         width: 70px;
     }
+
     .subTextHeader {
         font-size: 18px !important;
     }
