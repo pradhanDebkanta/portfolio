@@ -1,13 +1,12 @@
-import { NextRequest } from 'next/server';
+// import { NextRequest } from 'next/server';
+import ip from 'ip';
 
 
 async function handelers(req, res) {
-    let ip = req.headers['x-forwarded-for'];
-    console.log(NextRequest.ip)
-    // console.log(ip, 'ipp')
-    res.send(ip)
+    let clientIp = ip.address();
+    console.log(clientIp, 'ip')
+    res.send(clientIp)
+    // console.log(NextRequest.ip)
 };
 
 export default handelers;
-
-// https://drive.google.com/u/1/uc?id=1Slyc3nHOXcYbKnFi6BROmnyPj4DDFCKS&export=download
