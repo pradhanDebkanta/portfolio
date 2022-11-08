@@ -48,8 +48,8 @@ export default function Index({ personalProject, contributeProject }) {
 
 export async function getStaticProps() {
   try {
-    const pp = await apiService.get('/api/project', { projectType: 'personal', perPageItem: 6 });
-    const cp = await apiService.get('/api/project', { projectType: 'contribute' });
+    const pp = await apiService.get('/api/project', { projectType: 'personal', perPageItem: 6, token: process.env.NEXT_PUBLIC_API_TOKEN });
+    const cp = await apiService.get('/api/project', { projectType: 'contribute', token: process.env.NEXT_PUBLIC_API_TOKEN });
 
     if (pp.status !== 200) {
       pp.data = {

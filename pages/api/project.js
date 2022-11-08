@@ -2,9 +2,13 @@ import { personalProjects, contributeProject } from "../../server/db/projectList
 import { pagination } from "../../server/helper/project";
 
 async function handler(req, res) {
-  const { projectType, pageNo = 1, perPageItem = 5 } = req?.query;
-
   if (req.method === "GET") {
+    const { projectType, pageNo = 1, perPageItem = 5, token } = req?.query;
+
+    if (token === undefined || token !== process.env.NEXT_PUBLIC_API_TOKEN) {
+      return res.status(401).json({ error: 'unAuthorized request!' });
+    }
+
     if (projectType === "personal") {
       const projects = pagination(pageNo, perPageItem, personalProjects);
       const pProject = {
@@ -22,6 +26,8 @@ async function handler(req, res) {
     } else {
       res.status(400).json({ message: "invalid request." });
     }
+  } else {
+    res.status(405).json({ error: 'invalid method!' })
   }
 }
 

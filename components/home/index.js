@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import home from '../../assets/css/home/home.module.css';
-import { Button, Container, Grid, Spacer, Text, useTheme, } from '@nextui-org/react';
+import { Button, Container, Grid, Spacer, Text, useTheme,} from '@nextui-org/react';
 import { MdOutlineWavingHand } from 'react-icons/md';
 import { IconContext } from 'react-icons';
 
@@ -33,7 +33,6 @@ const Home = () => {
             router.push('/#contact');
         }, 1000);
     }
-
     return (
         <div id='home' className={home.container} >
             <Container>

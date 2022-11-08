@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import skill from '../../assets/css/skills/skills.module.css';
 import home from '../../assets/css/home/home.module.css';
 import { Container, Grid, Row, Spacer, Text, useTheme, Card, Collapse, Button, Progress, Tooltip } from '@nextui-org/react';
@@ -11,6 +11,8 @@ import { IconContext } from 'react-icons';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import Net from '../../utils/svg/Net';
+import CountUp from 'react-countup';
+import { getVisitors } from '../../action/getVisitors';
 
 
 const programmingLanguage = [
@@ -117,7 +119,15 @@ const Skills = () => {
     const { isDark } = useTheme();
     const headerColor = isDark ? "45deg, $purple600 -20%, $pink600 100%" : "-20deg, #b721ff 0%, #21d4fd 100%";
     const subHeaderColor = isDark ? "45deg, $purple600 -20%, $pink600 100%" : "45deg, #21D4FD 0%, #B721FF 33%, #7434db 94%";
+    const [totalVisit, setTotalVisit] = useState(0);
 
+    useEffect(() => {
+        getVisitors(process?.env?.NEXT_PUBLIC_API_TOKEN).then(res => {
+            setTotalVisit(res?.totalUniqueVisit);
+        }).catch(err => {
+            console.log(err)
+        })
+    }, []);
 
     return (
         <div id='skills' className={skill.container}>
@@ -412,9 +422,49 @@ const Skills = () => {
                         </div>
                     </Grid>
                     <Grid sm={6} xs={12}>
-                        <Row>
-                            <Image src={skill_img} alt='skill_bg' />
-                        </Row>
+                        <Grid.Container>
+                            <Grid xl={12}>
+                                <Row>
+                                    <Image src={skill_img} alt='skill_bg' />
+                                </Row>
+                            </Grid>
+                            <Grid xl={12}>
+                                <Row css={{ paddingLeft: '16px' }}>
+                                    <Text
+                                        h6
+                                        size={20}
+                                        css={{
+                                            justifyContent: 'center',
+                                            paddingRight: '8px',
+                                            textGradient: subHeaderColor,
+                                            '@smMax': {
+                                                fontSize: 18
+                                            }
+                                        }}
+                                    >
+                                        Total unique visitors: {' '}
+                                    </Text>
+                                    <Text
+                                        h6
+                                        size={20}
+                                        css={{
+                                            color: '#7ee787',
+                                            '@smMax': {
+                                                fontSize: 18
+                                            }
+                                        }}
+                                    >
+                                        <CountUp
+                                            end={totalVisit}
+                                            delay={1.5}
+                                            duration={4}
+                                            useEasing={true}
+                                            enableScrollSpy={true}
+                                        />
+                                    </Text>
+                                </Row>
+                            </Grid>
+                        </Grid.Container>
                     </Grid>
                 </Grid.Container>
 
