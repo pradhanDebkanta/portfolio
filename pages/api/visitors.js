@@ -1,22 +1,23 @@
 import cookie from 'cookie';
 import Models from '../../server/models';
+import ip from '../../server/helper/ip';
 
 const { IpModel } = Models;
 
 async function handler(req, res) {
     const reqCookie = cookie.parse(req?.headers?.cookie || '');
-    const reqIp = req?.connection?.remoteAddress;
+    const clientIp = ip.getIp.apply(req);
     console.log('cookie', reqCookie);
 
     try {
-        const foundIp = await IpModel.findOne({ ip: reqIp }).exec();
+        const foundIp = await IpModel.findOne({ ip: clientIp }).exec();
         if (foundIp) {
             foundIp.hitted = foundIp.hitted + 1;
             let result = await foundIp.save();
             if (!(reqCookie && Object.keys(reqCookie).length !== 0)) {
                 res.setHeader('Set-Cookie', cookie.serialize('gtk', `${result._id}`));
             }
-            let data = await countingVisitors(reqIp, foundIp.hitted);
+            let data = await countingVisitors(clientIp, foundIp.hitted);
             return res.send(data);
 
         } else {
@@ -25,17 +26,17 @@ async function handler(req, res) {
                 if (foundIpByCookie) {
                     foundIpByCookie.hitted = foundIpByCookie.hitted + 1;
                     await foundIpByCookie.save();
-                    let data = await countingVisitors(reqIp, foundIpByCookie.hitted);
+                    let data = await countingVisitors(clientIp, foundIpByCookie.hitted);
                     return res.send(data);
 
                 } else {
                     return res.status(403).json({ error: 'invalid cookie.' });
                 }
             } else {
-                const newIp = new IpModel({ ip: reqIp, hitted: 1 });
+                const newIp = new IpModel({ ip: clientIp, hitted: 1 });
                 let result = await newIp.save();
                 res.setHeader('Set-Cookie', cookie.serialize('gtk', `${result._id}`));
-                let data = await countingVisitors(reqIp, result.hitted);
+                let data = await countingVisitors(clientIp, result.hitted);
                 return res.send(data);
             }
         }

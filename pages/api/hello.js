@@ -1,19 +1,10 @@
-// import { NextRequest } from 'next/server';
-import ip from 'ip';
-import requestIp from 'request-ip';
-
+import ip from '../../server/helper/ip';
 
 async function handelers(req, res) {
-    let clientIp = ip.address();
-    let clientIp1 = requestIp.getClientIp(req);
-    // console.log(clientIp, 'clientIp');
-    // console.log(clientIp1, 'clientIp1');
+    let clientIp = ip.getIp.apply(req);
 
-    // res.send({
-    //     ip: clientIp,
-    //     requestIp: clientIp1
-    // })
-    // console.log(NextRequest.ip)
+    console.log(clientIp, 'client ip');
+
     let checkIP = {
         xcip: req.headers['x-client-ip'] || `req.headers['x-client-ip']`,
         cfcip: req.headers['cf-connecting-ip'] || `req.headers['cf-connecting-ip']`,
@@ -32,8 +23,8 @@ async function handelers(req, res) {
         sorceip: req.requestContext?.identity?.sourceIp || `req.requestContext.identity.sourceIp`,
         cf: req.headers['Cf-Pseudo-IPv4'] || `req.headers['Cf-Pseudo-IPv4']`,
     };
-    console.log('ip', checkIP);
-    res.send(checkIP)
+    // console.log('ip', checkIP);
+    res.send({ checkIP, clientIp })
 };
 
 export default handelers;
