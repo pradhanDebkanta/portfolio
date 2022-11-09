@@ -4,11 +4,12 @@ import Cookies from "js-cookie";
 export const getVisitors = async (apiToken) => {
     try {
         const cookieToken = Cookies.get('token');
-        console.log(cookieToken,'token');
+        // console.log(cookieToken, 'token');
         const response = await apiService.get('api/visitors', { token: apiToken }, {
             'x-token': cookieToken
         });
-        console.log('res', response.headers['x-token']);
+        // console.log('res', response.headers['x-token']);
+        console.log(response?.data);
 
         if (response?.headers['x-token']) {
             Cookies.set('token', response.headers['x-token'], {
