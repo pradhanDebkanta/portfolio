@@ -1,4 +1,3 @@
-import cookie from 'cookie';
 import Models from '../../server/models';
 import ip from '../../server/helper/ip';
 
@@ -7,11 +6,11 @@ const { IpModel } = Models;
 async function handler(req, res) {
 
     if (req.method === "GET") {
-        const reqCookie = cookie.parse(req?.headers?.cookie || '');
+        const reqCookie = req.headers['x-token'];
         const clientIp = ip.getIp.apply(req);
         const { token } = req?.query;
         if (token === undefined || token !== process.env.NEXT_PUBLIC_API_TOKEN) {
-            return res.status(401).json({ error: 'inAuthorized request!' });
+            return res.status(401).json({ error: 'unAuthorized request!' });
         }
         // console.log('cookie', reqCookie);
 
@@ -20,15 +19,16 @@ async function handler(req, res) {
             if (foundIp) {
                 foundIp.hitted = foundIp.hitted + 1;
                 let result = await foundIp.save();
-                if (!(reqCookie && Object.keys(reqCookie).length !== 0)) {
-                    res.setHeader('Set-Cookie', cookie.serialize('gtk', `${result._id}`));
+                if (reqCookie == 'undefined') {
+                    console.log(result._id, 'result_id');
+                    res.setHeader('x-token', result._id);
                 }
                 let data = await countingVisitors(clientIp, foundIp.hitted);
                 return res.send(data);
 
             } else {
-                if (reqCookie && Object.keys(reqCookie).length !== 0) {
-                    const foundIpByCookie = await IpModel.findOne({ _id: reqCookie?.gtk }).exec();
+                if (reqCookie !== 'undefined') {
+                    const foundIpByCookie = await IpModel.findOne({ _id: reqCookie }).exec();
                     if (foundIpByCookie) {
                         foundIpByCookie.hitted = foundIpByCookie.hitted + 1;
                         await foundIpByCookie.save();
@@ -36,12 +36,12 @@ async function handler(req, res) {
                         return res.send(data);
 
                     } else {
-                        return res.status(403).json({ error: 'invalid cookie.' });
+                        return res.status(400).json({ error: 'invalid cookie.' });
                     }
                 } else {
                     const newIp = new IpModel({ ip: clientIp, hitted: 1 });
                     let result = await newIp.save();
-                    res.setHeader('Set-Cookie', cookie.serialize('gtk', `${result._id}`));
+                    res.setHeader('x-token', result._id);
                     let data = await countingVisitors(clientIp, result.hitted);
                     return res.send(data);
                 }
