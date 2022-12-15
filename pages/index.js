@@ -1,15 +1,20 @@
 import Head from 'next/head'
 import Home from '../components/home';
-import Education from '../components/education';
-import Skills from '../components/skills';
-import Experience from '../components/experience';
-import Project from '../components/project';
-import Contact from '../components/contact';
+// import Education from '../components/education';
+// import Skills from '../components/skills';
+// import Experience from '../components/experience';
+// import Project from '../components/project';
+// import Contact from '../components/contact';
 import homeCss from '../assets/css/home/home.module.css';
 import apiService from '../services/apiService';
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 import dynamic from 'next/dynamic';
+const Education = dynamic(() => import('../components/education'));
+const Skills = dynamic(() => import('../components/skills'));
+const Experience = dynamic(() => import('../components/experience'));
+const Project = dynamic(() => import('../components/project'));
+const Contact = dynamic(() => import('../components/contact'));
 
 
 function Index({ personalProject, contributeProject }) {

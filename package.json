@@ -9,7 +9,8 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "GENERATE_SOURCEMAP=false next build",
+    "build_window": "set \"GENERATE_SOURCEMAP=false\" && next build",
     "start": "next start",
     "lint": "next lint"
   },
