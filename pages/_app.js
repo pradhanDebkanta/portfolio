@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import dynamic from 'next/dynamic';
 import '../assets/css/globals.css';
 import { createTheme, NextUIProvider } from "@nextui-org/react"
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
@@ -39,8 +38,7 @@ function MyApp({ Component, pageProps }) {
     >
       <NextUIProvider>
         <TopNavbar />
-          <Component {...pageProps} />
-        {/* </TopNavbar> */}
+        <Component {...pageProps} />
       </NextUIProvider>
     </NextThemesProvider>
   )
