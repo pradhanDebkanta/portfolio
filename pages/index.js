@@ -9,9 +9,10 @@ import homeCss from '../assets/css/home/home.module.css';
 import apiService from '../services/apiService';
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
+import dynamic from 'next/dynamic';
 
 
-export default function Index({ personalProject, contributeProject }) {
+function Index({ personalProject, contributeProject }) {
   const router = useRouter();
   const handleTittle = useCallback(() => {
     if (router.asPath === '/') {
@@ -45,6 +46,9 @@ export default function Index({ personalProject, contributeProject }) {
     </div>
   )
 }
+
+export default Index;
+// dynamic(() => Promise.resolve(Index), { ssr: false });
 
 export async function getStaticProps() {
   try {

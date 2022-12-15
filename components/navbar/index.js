@@ -71,6 +71,7 @@ const TopNavbar = ({ children }) => {
                                 key={item.key}
                                 scroll={false}
                                 passHref
+                                prefetch={false}
                             >
                                 <Navbar.Link
                                     isActive={activeRoute(item.url)}

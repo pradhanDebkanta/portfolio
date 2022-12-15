@@ -31,6 +31,7 @@ const MobileNavbar = ({ toggler }) => {
                             href={item.url}
                             scroll={false}
                             passHref
+                            prefetch={false}
                         >
                             <Link
                                 color="inherit"
