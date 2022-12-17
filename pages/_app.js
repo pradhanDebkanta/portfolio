@@ -22,8 +22,8 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
-      // console.log = () => { };
-      // console.warn = () => { };
+      console.log = () => { };
+      console.warn = () => { };
     }
 
   }, [])

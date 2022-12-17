@@ -1,6 +1,6 @@
 .container {
     min-height: 60vh;
-    background-image: url('../../images/footer.png');
+    background-image: url('../../images/footer1.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -44,7 +44,8 @@
     transform: translateX(0px);
     transition: all 0.3s ease;
 }
-.translateX:hover{
+
+.translateX:hover {
     transform: translateX(6px);
     transition: all 0.3s ease;
 }

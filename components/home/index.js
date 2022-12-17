@@ -3,11 +3,11 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import home from '../../assets/css/home/home.module.css';
-import { Button, Container, Grid, Spacer, Text, useTheme,} from '@nextui-org/react';
+import { Button, Container, Grid, Spacer, Text, useTheme, } from '@nextui-org/react';
 import { MdOutlineWavingHand } from 'react-icons/md';
 import { IconContext } from 'react-icons';
 
-import profileImg from '../../assets/images/myProfile.png';
+import profileImg from '../../assets/images/myProfile1.png';
 
 const TypeAnimation = dynamic(() => import('react-type-animation').then(res => res.TypeAnimation), { ssr: false })
 
