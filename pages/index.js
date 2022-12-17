@@ -15,6 +15,7 @@ const Skills = dynamic(() => import('../components/skills'));
 const Experience = dynamic(() => import('../components/experience'));
 const Project = dynamic(() => import('../components/project'));
 const Contact = dynamic(() => import('../components/contact'));
+const GithubActivity = dynamic(() => import('../components/githubContribution'));
 
 
 function Index({ personalProject, contributeProject }) {
@@ -45,6 +46,7 @@ function Index({ personalProject, contributeProject }) {
             personalProject={personalProject}
             contributeProject={contributeProject}
           />
+          <GithubActivity />
           <Contact />
         </div>
       </div>

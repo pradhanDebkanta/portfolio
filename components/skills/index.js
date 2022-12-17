@@ -205,10 +205,10 @@ const Skills = () => {
                                             <Grid xs={6} sm={4} key={item.name}>
                                                 <Card isPressable>
                                                     <Card.Body css={{ p: 0 }}>
-                                                        <Card.Image
+                                                        <Image
                                                             src={item.src}
-                                                            width="100%"
-                                                            height={'auto'}
+                                                            width="200px"
+                                                            height={'200px'}
                                                             alt={item.name}
                                                             css={{
                                                                 padding: '6px 5px 0px'
@@ -262,10 +262,10 @@ const Skills = () => {
                                             <Grid xs={6} sm={4} key={item.name}>
                                                 <Card isPressable>
                                                     <Card.Body css={{ p: 0 }}>
-                                                        <Card.Image
+                                                        <Image
                                                             src={item.src}
-                                                            width="100%"
-                                                            height={'auto'}
+                                                            width="200px"
+                                                            height={'200px'}
                                                             alt={item.name}
                                                             css={{
                                                                 padding: '7px 5px 0px'
@@ -318,10 +318,10 @@ const Skills = () => {
                                             <Grid xs={6} sm={4} key={item.name}>
                                                 <Card isPressable>
                                                     <Card.Body css={{ p: 0 }}>
-                                                        <Card.Image
+                                                        <Image
                                                             src={item.src}
-                                                            width="100%"
-                                                            height={'auto'}
+                                                            width="400px"
+                                                            height={'400px'}
                                                             alt={item.name}
                                                             css={{
                                                                 padding: '7px 5px 0px'
@@ -376,8 +376,8 @@ const Skills = () => {
                                                     <Card.Body css={{ p: 0 }}>
                                                         <Card.Image
                                                             src={item.src}
-                                                            width="100%"
-                                                            height={'auto'}
+                                                            width="200px"
+                                                            height={'200px'}
                                                             alt={item.name}
                                                             css={{
                                                                 padding: '7px 5px 0px'
