@@ -132,6 +132,7 @@ const Home = () => {
                                 src={profileImg}
                                 alt='profile img'
                                 className={home.img}
+                                priority='eager'
                             />
                         </div>
                     </Grid>
