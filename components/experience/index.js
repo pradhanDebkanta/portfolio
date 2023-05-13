@@ -42,11 +42,11 @@ const Experience = () => {
         lineObserver.observe(branchRef.current);
         lineObserver.observe(line1Ref.current);
         lineObserver.observe(line2Ref.current);
-        // lineObserver.observe(line3Ref.current);
+        lineObserver.observe(line3Ref.current);
 
         contentObserver.observe(violateContentRef?.current);
         contentObserver.observe(greenContentRef?.current);
-        // contentObserver.observe(orrangeContentRef?.current);
+        contentObserver.observe(orrangeContentRef?.current);
 
     }, [])
 
@@ -83,6 +83,8 @@ const Experience = () => {
                         <Col span={11}>
                         </Col>
                     </Row>
+
+                    {/* mymenu exp  */}
                     <Row>
                         <Col span={1}>
                             <div className={expCss.icon}>
@@ -110,7 +112,7 @@ const Experience = () => {
                                     }}
                                     className={`${eduCss.responsiveSubText}`}
                                 >
-                                    Daphnis Labs
+                                    MyMenu | Digital Menu
                                 </Text>
                                 <Grid.Container gap={2}>
                                     <Grid xs={12} sm={6} md={4}>
@@ -132,7 +134,7 @@ const Experience = () => {
                                                     },
                                                 }}
                                             >
-                                                {`Front-end developer (as Intern)`}
+                                                {`Front-end developer (as Full-time)`}
                                             </Text>
                                         </Row>
                                     </Grid>
@@ -155,7 +157,7 @@ const Experience = () => {
                                                     },
                                                 }}
                                             >
-                                                {`Nov,2021-Mar,2022 (5 months)`}
+                                                {`Dec,2022 (Present)`}
                                             </Text>
                                         </Row>
                                     </Grid>
@@ -180,7 +182,7 @@ const Experience = () => {
                                                     },
                                                 }}
                                             >
-                                                {`Next Js, React Js, Shopify, Shopify App bridge, Node Js, MongoDB, Ant Design, Chakra UI, Polaris`}
+                                                {`React Js, Redux, Redux-saga, Redux Persist, i18next, axios, Formik & Yup, Cookie, Keen slider, lodash, moment, Socket Io, Material UI, Bootstrap 5, qr-scanner, Google login, facebook login, apple login, Payment gateway(Stripe, Razor pay, Paytm pay, Square Pay, Google pay, Apple pay, iOL pay, Checkout pay)`}
                                             </Text>
                                         </div>
                                     </Grid>
@@ -205,7 +207,7 @@ const Experience = () => {
                                                     },
                                                 }}
                                             >
-                                                I had work on Shopify platform to build shopify admin app using the above mention technology. I had contributed on Wishlist app, Size chart app, Heatmap app and Bullet transfer app.
+                                                I am working on QR Menu from scratch. This app has dynamic theme, multi language support, multiple payment service integration, chat service(using socket.io) etc.
                                             </Text>
                                         </div>
                                     </Grid>
@@ -213,6 +215,8 @@ const Experience = () => {
                             </div>
                         </Col>
                     </Row>
+
+                    {/* daphnis exp  */}
                     <Row>
                         <Col span={1}>
                             <div className={expCss.icon}>
@@ -239,7 +243,7 @@ const Experience = () => {
                                     }}
                                     className={`${eduCss.responsiveSubText}`}
                                 >
-                                    Vidyayan
+                                    Daphnis Labs
                                 </Text>
                                 <Grid.Container gap={2}>
                                     <Grid xs={12} sm={6} md={4}>
@@ -284,7 +288,7 @@ const Experience = () => {
                                                     },
                                                 }}
                                             >
-                                                {`Aug,2021-Oct,2021 (3 months)`}
+                                                {`Nov,2021-Mar,2022 (5 months)`}
                                             </Text>
                                         </Row>
                                     </Grid>
@@ -309,7 +313,7 @@ const Experience = () => {
                                                     },
                                                 }}
                                             >
-                                                {`React Js, Redux, Node Js, Express Js, MongoDB, Material UI, Bootstrap 4`}
+                                                {`Next Js, React Js, Shopify, Shopify App bridge, Node Js, MongoDB, Ant Design, Chakra UI, Polaris`}
                                             </Text>
                                         </div>
                                     </Grid>
@@ -334,7 +338,7 @@ const Experience = () => {
                                                     },
                                                 }}
                                             >
-                                                I had work on there online EdTech platform. I had built student, tutor & admin dashboard, online examination, classroom, library system on their site. Also build & integrate API.
+                                                I had work on Shopify platform to build shopify admin app using the above mention technology. I had contributed on Wishlist app, Size chart app, Heatmap app and Bullet transfer app.
                                             </Text>
                                         </div>
                                     </Grid>
@@ -342,7 +346,9 @@ const Experience = () => {
                             </div>
                         </Col>
                     </Row>
-                    {/* <Row>
+
+                    {/* vidyayan exp  */}
+                    <Row>
                         <Col span={1}>
                             <div className={expCss.icon}>
                                 <IconContext.Provider value={{ size: 28, color: `${isDark ? '#fff' : '#624F82'}` }}>
@@ -441,12 +447,13 @@ const Experience = () => {
                                         </Row>
                                     </Grid>
                                     <Grid xs={12} sm={12} md={12}>
-                                        <Row>
+                                        <div>
                                             <Text
                                                 css={{
                                                     paddingRight: '8px',
                                                     color: '#ffa28b',
-                                                    fontFamily: '$mono'
+                                                    fontFamily: '$mono',
+                                                    float: 'left',
                                                 }}
                                             >
                                                 Contribution:
@@ -454,6 +461,7 @@ const Experience = () => {
                                             <Text
                                                 css={{
                                                     letterSpacing: '1px',
+                                                    display: 'contents',
                                                     '@xsMax': {
                                                         fontSize: '14px'
                                                     },
@@ -461,12 +469,12 @@ const Experience = () => {
                                             >
                                                 I had work on there online EdTech platform. I had built student, tutor & admin dashboard, online examination, classroom, library system on their site. Also build & integrate API.
                                             </Text>
-                                        </Row>
+                                        </div>
                                     </Grid>
                                 </Grid.Container>
                             </div>
                         </Col>
-                    </Row> */}
+                    </Row>
                 </div>
 
             </Container >

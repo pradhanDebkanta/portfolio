@@ -8,8 +8,9 @@ import { HiOutlineDocumentDownload } from 'react-icons/hi';
 import { IconContext } from 'react-icons';
 import { getPdf } from '../action/getPdf';
 
-const newPdfId = '1GF7zT_I11vNLGYIUF8nHeLEeVntcQ95Q';
-const pdfId = '1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr';
+const newPdfId = '1ZH2YNpWbJqnrrwp3qE5jOFdHhV-HHJ5Z';
+const pdfId2 = '1GF7zT_I11vNLGYIUF8nHeLEeVntcQ95Q';
+const pdfId1 = '1_Bd2b7RzDeWJvRoYBgAVy6zTGI1-ltjr';
 
 const Resume = () => {
     const { isDark } = useTheme();

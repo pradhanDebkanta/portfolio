@@ -13,7 +13,7 @@ export const getVisitors = async (apiToken) => {
 
         if (response?.headers['x-token']) {
             Cookies.set('token', response.headers['x-token'], {
-                expires: 365 * 2
+                expires: 7
             });
         }
 

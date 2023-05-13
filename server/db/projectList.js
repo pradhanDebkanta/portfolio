@@ -167,6 +167,15 @@ export const personalProjects = [
 
 export const contributeProject = [
     {
+        id: "qr_menu",
+        name: "QR Menu",
+        description: "This app has dynamic theme, multi language support, multiple payment service integration, chat service(using socket.io) etc",
+        feature: "",
+        contribution: "I build this app from scratch",
+        technology: ["React Js", "Redux", "Redux-saga", "Redux Persist", "i18next", "axios", "Formik & Yup", "Cookie", "Keen slider", "lodash", "moment", "Socket Io", "Material UI", "Bootstrap 5", "qr-scanner", "Google login", "facebook login", "apple login", "Payment gateway(Stripe, Razor pay, Paytm pay, Square Pay, Google pay, Apple pay, iOL pay, Checkout pay)"],
+        liveDemo: "https://scan.mydigimenu.com/36f62b7c-e406-48f5-870f-02512e313c7a"
+    },
+    {
         id: "wishlist_app",
         name: "Wishlist App",
         description: "Wishlist app is a shopify app that is available on shopify store. ",
