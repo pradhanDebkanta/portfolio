@@ -193,7 +193,7 @@ const Contact = () => {
                                                 color: textColor
                                             }}
                                         >
-                                            Jaipur, Rajasthan
+                                            Kolkata, West Bengal
                                         </Text>
                                     </Row>
                                 </Col>
