@@ -15,7 +15,7 @@ const PersonalProject = ({ personalProject }) => {
     const iconColor = isDark ? '#fff' : '#7895B2';
     const textColor = isDark ? '#eeefee' : '#16213E';
     const textHeadingColor = isDark ? "$secondary" : "#8758FF";
-    const modalFooterBorder= isDark? '1px solid #665A48':'1px solid #DFF6FF';
+    const modalFooterBorder = isDark ? '1px solid #665A48' : '1px solid #DFF6FF';
     const ref = useRef('');
     const ref1 = useRef('');
     const [pProject, setPProject] = useState(personalProject.projects);
@@ -79,7 +79,7 @@ const PersonalProject = ({ personalProject }) => {
                                             top: 5,
                                             zIndex: 999,
                                         }}
-                                        >
+                                    >
                                         <Text
                                             h3
                                             size={20}
@@ -106,20 +106,19 @@ const PersonalProject = ({ personalProject }) => {
                                                 <div>
                                                     <Text
                                                         css={{
-                                                            color: textHeadingColor,
-                                                            float: 'left',
-                                                            marginRight: 8
-                                                        }}
-                                                    >
-                                                        Description :
-                                                    </Text>
-                                                    <Text
-                                                        css={{
                                                             color: textColor,
-                                                            display: 'contents',
                                                         }}
+                                                        className={projectCss.ellipse_3}
                                                     >
-                                                        {item?.description?.slice(0, 150)}{" "}.........
+                                                        <Text span
+                                                            css={{
+                                                                color: textHeadingColor,
+                                                                marginRight: 8
+                                                            }}
+                                                        >
+                                                            Description :
+                                                        </Text>
+                                                        {item.description}
                                                     </Text>
                                                 </div>
 
@@ -128,25 +127,23 @@ const PersonalProject = ({ personalProject }) => {
                                         }
                                         {item?.feature && <>
                                             <div>
-                                                <Text
-                                                    css={{
-                                                        color: textHeadingColor,
-                                                        float: 'left',
-                                                        marginRight: 8
-                                                    }}
-                                                >
-                                                    Features :
-                                                </Text>
-                                                <Text
+                                                <Text className={projectCss.ellipse_4}
                                                     css={{
                                                         color: textColor,
-                                                        display: 'contents'
                                                     }}
                                                 >
-                                                    {item?.feature?.slice(0, 200).concat(".........").split("\n").map((item, idx) => {
+                                                    <Text span
+                                                        css={{
+                                                            color: textHeadingColor,
+                                                            marginRight: 8
+                                                        }}
+                                                    >
+                                                        Features :
+                                                    </Text>
+                                                    {item?.feature?.split("\n").map((item, idx) => {
                                                         return (
-                                                            <span key={idx} style={{ display: 'block' }}>
-                                                                {idx + 1}. {item}
+                                                            <span key={idx} style={{ display: idx !== 0 && 'block' }}>
+                                                                {`${idx + 1}. ${item}`}
                                                             </span>
                                                         )
                                                     })}

@@ -19,17 +19,27 @@ const programmingLanguage = [
     {
         name: 'JavaScript',
         src: '/javascript.svg',
-        exp: 80,
+        exp: 90,
     },
     {
         name: 'C++',
         src: '/cpp.png',
-        exp: 70,
+        exp: 80,
     },
     {
         name: 'C',
         src: '/c.svg',
-        exp: 70,
+        exp: 80,
+    },
+    {
+        name: 'Python',
+        src: '/python.png',
+        exp: 60,
+    },
+    {
+        name: 'Go-lang',
+        src: '/go.png',
+        exp: 60,
     },
 ];
 
@@ -37,57 +47,57 @@ const libraries = [
     {
         name: 'React Js',
         src: '/react.svg',
-        exp: 80,
+        exp: 95,
     },
     {
         name: 'Next Js',
         src: '/next-js.svg',
-        exp: 75,
+        exp: 90,
     },
     {
         name: 'Node Js',
         src: '/node.svg',
-        exp: 65,
+        exp: 80,
     },
     {
         name: 'Express Js',
         src: '/expressjs.svg',
-        exp: 65,
+        exp: 80,
     },
     {
         name: 'Mongoose',
         src: 'https://avatars.githubusercontent.com/u/7552965?s=400&v=4',
-        exp: 60,
+        exp: 80,
     },
     {
         name: 'Redux',
         src: '/redux.svg',
-        exp: 80,
+        exp: 95,
     },
     {
         name: 'React Query',
         src: '/reactquery.png',
-        exp: 60,
+        exp: 80,
     },
     {
         name: 'Ant-Design',
         src: '/antd.svg',
-        exp: 80,
+        exp: 95,
     },
     {
         name: 'Chakra UI',
         src: '/chakra.jpg',
-        exp: 70,
+        exp: 80,
     },
     {
         name: 'Next UI',
         src: '/nextui.png',
-        exp: 80,
+        exp: 90,
     },
     {
         name: 'Meterial UI',
         src: '/mui.svg',
-        exp: 65,
+        exp: 95,
     },
     {
         name: 'Polaris',
@@ -100,15 +110,21 @@ const tools = [
     {
         name: 'Shopify',
         src: '/shopify-tool.svg',
-        exp: 70,
-    }
+        exp: 90,
+    },
+    {
+        name: 'AWS',
+        src: '/aws.png',
+        exp: 60,
+    },
+
 ];
 
 const database = [
     {
         name: 'MongoDB',
         src: '/mongodb.svg',
-        exp: 65,
+        exp: 80,
     }
 ]
 

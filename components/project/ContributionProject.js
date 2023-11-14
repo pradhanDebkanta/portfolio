@@ -93,78 +93,76 @@ const ContributionProject = ({ contributeProject }) => {
                                     </Card.Header>
                                     <Card.Body>
                                         <div>
-                                            <Text
-                                                css={{
-                                                    color: textHeadingColor,
-                                                    float: 'left',
-                                                    marginRight: 8
-                                                }}
-                                            >
-                                                Description :
-                                            </Text>
-                                            <Text
+                                            <Text className={projectCss.ellipse_3}
                                                 css={{
                                                     color: textColor,
-                                                    display: 'contents',
                                                 }}
                                             >
-                                                {item?.description?.slice(0,150)}{" "}.........
+                                                <Text span
+                                                    css={{
+                                                        color: textHeadingColor,
+                                                        marginRight: 8
+                                                    }}
+                                                >
+                                                    Description :
+                                                </Text>
+                                                {item?.description}
                                             </Text>
                                         </div>
 
                                         <Spacer y={0.6} />
+                                        {!!item?.feature?.length && (
+                                            <>
+                                                <div>
+                                                    <Text className={projectCss.ellipse_4}
+                                                        css={{
+                                                            color: textColor,
+                                                        }}
+                                                    >
+                                                        <Text span
+                                                            css={{
+                                                                color: textHeadingColor,
+                                                                marginRight: 8
+                                                            }}
+                                                        >
+                                                            Features :
+                                                        </Text>
+                                                        {item?.feature?.split("\n").map((item, idx) => {
+                                                            return (
+                                                                <span key={idx} style={{ display: idx !== 0 && 'block' }}>
+                                                                    {`${idx + 1}. ${item}`}
+                                                                </span>
+                                                            )
+                                                        })}
+                                                    </Text>
+
+                                                </div>
+                                                <Spacer y={0.6} />
+                                            </>
+                                        )}
                                         <div>
-                                            <Text
-                                                css={{
-                                                    color: textHeadingColor,
-                                                    float: 'left',
-                                                    marginRight: 8
-                                                }}
-                                            >
-                                                Features :
-                                            </Text>
-                                            <Text
+                                            <Text className={projectCss.ellipse_2}
                                                 css={{
                                                     color: textColor,
-                                                    display: 'contents'
                                                 }}
                                             >
-                                                {item?.feature?.slice(0, 120).concat(".........").split("\n").map((item, idx) => {
+                                                <Text span
+                                                    css={{
+                                                        color: textHeadingColor,
+                                                        float: 'left',
+                                                        marginRight: 8
+                                                    }}
+                                                >
+                                                    Contribution :
+                                                </Text>
+                                                {item?.contribution?.split("\n").map((item, idx) => {
                                                     return (
-                                                        <span key={idx} style={{ display: 'block' }}>
-                                                            {idx + 1}. {item}
+                                                        <span key={idx} style={{ display: idx !== 0 && 'block' }}>
+                                                            {`${idx + 1}. ${item}`}
                                                         </span>
                                                     )
                                                 })}
                                             </Text>
-
-                                        </div>
-                                        <Spacer y={0.6} />
-                                        <div>
-                                            <Text
-                                                css={{
-                                                    color: textHeadingColor,
-                                                    float: 'left',
-                                                    marginRight: 8
-                                                }}
-                                            >
-                                                Contribution :
-                                            </Text>
-                                            <Text
-                                                css={{
-                                                    color: textColor,
-                                                    display: 'contents'
-                                                }}
-                                            >
-                                                {item?.contribution?.slice(0, 150).concat(".........").split("\n").map((item, idx) => {
-                                                    return (
-                                                        <span key={idx} style={{ display: 'block' }}>
-                                                            {idx + 1}. {item}
-                                                        </span>
-                                                    )
-                                                })}
-                                            </Text>
-
                                         </div>
                                         <Spacer y={0.6} />
                                         <div>

@@ -55,7 +55,7 @@ const Home = () => {
                                     weight="bold"
                                     className={home.responsiveText}
                                 >
-                                    Hi,
+                                    Hello there!
                                     <IconContext.Provider
                                         value={{ size: 36, style: { paddingLeft: 10, color: '#b721ff' }, className: `${home.handshak}` }} >
                                         <MdOutlineWavingHand />
@@ -84,8 +84,8 @@ const Home = () => {
                                     }
                                 </Text>
                                 <Text
-                                    h5
-                                    size={20}
+                                    h6
+                                    size={18}
                                     css={{
                                         color: textColor,
                                         textAlign: 'center',
@@ -95,19 +95,19 @@ const Home = () => {
                                     }}
 
                                 >
-                                    I&#39;m a <strong style={{ color: highlightColor }}>MERN</strong> stack web developer.
+                                    🚀 Passionate Full Stack Web and App Developer 🚀
                                 </Text>
                                 <Text
-                                    size={18}
+                                    size={14}
                                     css={{
                                         color: textColor,
                                         textAlign: 'center',
                                         '@xsMax': {
-                                            fontSize: 16
+                                            fontSize: 14
                                         }
                                     }}
                                 >
-                                    I am here to develope a creative and high quality UI.
+                                    a dynamic Full Stack Web and App Developer on a mission to craft seamless digital experiences. With a solid foundation in both web and mobile application development, I bring a unique perspective to every project.
                                 </Text>
                             </div>
                             <Spacer y={1} />

@@ -40,9 +40,9 @@ const Contact = () => {
                 <Grid.Container gap={2}>
                     <Grid sm={6} justify='center'>
                         <div className={contactCss.contactBoxLeft}>
-                            <Row gap={0} className={contactCss.translateX} >
+                            <Row gap={0} className={contactCss.translateX} css={{ display: 'flex', alignItems: 'center' }}>
                                 <Col span={1.5}
-                                    css={{ cursor: 'pointer' }}
+                                    css={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
                                     onClick={() => { copyText('+91 7477671976') }}
                                 >
                                     <Tooltip
@@ -65,9 +65,9 @@ const Contact = () => {
                                 </Col>
                             </Row>
                             <Spacer y={0.8} />
-                            <Row gap={0} className={contactCss.translateX}>
+                            <Row gap={0} className={contactCss.translateX} css={{ display: 'flex', alignItems: 'center' }}>
                                 <Col span={1.5}
-                                    css={{ cursor: 'pointer', color: textColor }}
+                                    css={{ cursor: 'pointer', color: textColor, display: 'flex', alignItems: 'center' }}
                                     onClick={() => { copyText('debkantapradhan2000@gmail.com') }}
                                 >
                                     <Tooltip
@@ -89,9 +89,9 @@ const Contact = () => {
                                 </Col>
                             </Row>
                             <Spacer y={0.8} />
-                            <Row gap={0} className={contactCss.translateX}>
+                            <Row gap={0} className={contactCss.translateX} css={{ display: 'flex', alignItems: 'center' }}>
                                 <Col span={1.5}
-                                    css={{ cursor: 'pointer', color: textColor }}
+                                    css={{ cursor: 'pointer', color: textColor, display: 'flex', alignItems: 'center' }}
                                     onClick={() => { copyText('https://www.linkedin.com/in/debkanta-pradhan-4b6399193/') }}
                                 >
                                     <Tooltip
@@ -113,9 +113,9 @@ const Contact = () => {
                                 </Col>
                             </Row>
                             <Spacer y={0.8} />
-                            <Row gap={0} className={contactCss.translateX}>
+                            <Row gap={0} className={contactCss.translateX} css={{ display: 'flex', alignItems: 'center' }}>
                                 <Col span={1.5}
-                                    css={{ cursor: 'pointer', color: textColor }}
+                                    css={{ cursor: 'pointer', color: textColor, display: 'flex', alignItems: 'center' }}
                                     onClick={() => { copyText('https://github.com/pradhanDebkanta/') }}
                                 >
                                     <Tooltip
@@ -140,7 +140,7 @@ const Contact = () => {
                     </Grid>
                     <Grid sm={6} justify='center'>
                         <div className={contactCss.contactBoxRight}>
-                            <Row gap={0} className={contactCss.translateX}>
+                            <Row gap={0} className={contactCss.translateX} css={{ display: 'flex', alignItems: 'center' }}>
                                 <Col span={6}>
 
                                     <Text
@@ -155,7 +155,7 @@ const Contact = () => {
                                     </Text>
                                 </Col>
                                 <Col span={6}>
-                                    <Row>
+                                    <Row css={{ display: 'flex', alignItems: 'center' }}>
                                         <IconContext.Provider value={{ size: 18, style: { marginRight: 8 }, color: textColor }}>
                                             <GoLocation />
                                         </IconContext.Provider>
@@ -172,7 +172,7 @@ const Contact = () => {
                                 </Col>
                             </Row>
                             <Spacer y={1} />
-                            <Row gap={0} className={contactCss.translateX}>
+                            <Row gap={0} className={contactCss.translateX} css={{ display: 'flex', alignItems: 'center' }}>
                                 <Col>
                                     <Text
                                         size={16}
@@ -184,7 +184,7 @@ const Contact = () => {
                                         Current location :
                                     </Text></Col>
                                 <Col>
-                                    <Row>
+                                    <Row css={{ display: 'flex', alignItems: 'center' }}>
                                         <IconContext.Provider value={{ size: 18, style: { marginRight: 8 }, color: textColor }}>
                                             <RiUserLocationLine />
                                         </IconContext.Provider>

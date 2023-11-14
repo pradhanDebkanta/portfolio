@@ -134,7 +134,7 @@ const Experience = () => {
                                                     },
                                                 }}
                                             >
-                                                {`Front-end developer (as Full-time)`}
+                                                {`Software developer (Full-time)`}
                                             </Text>
                                         </Row>
                                     </Grid>
@@ -182,7 +182,7 @@ const Experience = () => {
                                                     },
                                                 }}
                                             >
-                                                {`React Js, Redux, Redux-saga, Redux Persist, i18next, axios, Formik & Yup, Cookie, Keen slider, lodash, moment, Socket Io, Material UI, Bootstrap 5, qr-scanner, Google login, facebook login, apple login, Payment gateway(Stripe, Razor pay, Paytm pay, Square Pay, Google pay, Apple pay, iOL pay, Checkout pay)`}
+                                                {`React Js, Redux, Redux-saga, Redux Persist, i18next, axios, Formik & Yup, Cookie, Keen slider, lodash, moment, Socket Io, Material UI, Bootstrap 5, qr-scanner, Google login, facebook login, apple login, Payment gateway (Stripe, Razor pay, Paytm pay, Square Pay, Google pay, Apple pay, iOL pay, Checkout pay, Otttu payment, Network International payment, Tap payment, Tapngo payment, Secure pay)`}
                                             </Text>
                                         </div>
                                     </Grid>
@@ -207,7 +207,7 @@ const Experience = () => {
                                                     },
                                                 }}
                                             >
-                                                I am working on QR Menu from scratch. This app has dynamic theme, multi language support, multiple payment service integration, chat service(using socket.io) etc.
+                                                I am working on QR Menu from scratch. This app has dynamic theme, multi language support, multiple payment service integration, chat service (using socket.io) etc.
                                             </Text>
                                         </div>
                                     </Grid>
@@ -265,7 +265,7 @@ const Experience = () => {
                                                     },
                                                 }}
                                             >
-                                                {`Front-end developer (as Intern)`}
+                                                {`Front-end developer (Intern)`}
                                             </Text>
                                         </Row>
                                     </Grid>
@@ -396,7 +396,7 @@ const Experience = () => {
                                                     },
                                                 }}
                                             >
-                                                {`Front-end developer (as Intern)`}
+                                                {`Front-end developer (Intern)`}
                                             </Text>
                                         </Row>
                                     </Grid>
